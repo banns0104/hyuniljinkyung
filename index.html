@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>우리 데이트 플랜</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+KR:wght@300;400;500&display=swap');
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#1c1612;--dust:#9a8880;--blush:#e8c4b4;--petal:#faf0eb;
+  --cream:#fdf9f6;--rose:#c47a5e;--deep:#8b4a35;--white:#fff;
+  --border:rgba(196,122,94,0.15);
+}
+html{scroll-behavior:smooth}
+body{background:var(--cream);font-family:'Noto Sans KR',sans-serif;color:var(--ink);min-height:100vh}
+
+#login{
+  position:fixed;inset:0;z-index:9999;background:var(--cream);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:32px 24px;
+}
+.login-title{
+  font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:300;
+  text-align:center;line-height:1.08;margin-bottom:6px;
+}
+.login-title em{font-style:italic;color:var(--rose)}
+.login-sub{font-size:13px;color:var(--dust);font-weight:300;margin-bottom:44px;text-align:center;margin-top:10px}
+.who-list{display:flex;flex-direction:column;gap:12px;width:100%;max-width:300px}
+.who-btn{
+  padding:17px 20px;border:1.5px solid var(--border);border-radius:16px;
+  background:var(--white);cursor:pointer;font-family:'Noto Sans KR',sans-serif;
+  display:flex;align-items:center;gap:14px;
+  transition:border-color .2s,box-shadow .2s;text-align:left;
+}
+.who-btn:hover{border-color:var(--rose);box-shadow:0 6px 20px rgba(196,122,94,0.1)}
+.who-av{
+  width:40px;height:40px;border-radius:50%;font-size:18px;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.who-btn.hy .who-av{background:#edf2f9}
+.who-btn.ky .who-av{background:#fceaea}
+.who-info .wname{font-size:15px;font-weight:500;display:block;margin-bottom:2px}
+.who-info .wrole{font-size:12px;color:var(--dust);font-weight:300}
+
+#app{display:none}
+
+.topbar{
+  position:sticky;top:0;z-index:200;
+  background:rgba(253,249,246,.96);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+}
+.topbar-inner{
+  max-width:640px;margin:0 auto;padding:10px 18px;
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+}
+.me-chip{
+  display:flex;align-items:center;gap:7px;
+  background:var(--petal);border-radius:999px;padding:5px 12px 5px 7px;
+}
+.me-av{width:24px;height:24px;border-radius:50%;font-size:12px;display:flex;align-items:center;justify-content:center}
+.me-av.hy{background:#edf2f9}
+.me-av.ky{background:#fceaea}
+.me-name{font-size:12px;font-weight:400;color:var(--ink)}
+.bar-title{
+  font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;
+  color:var(--ink);flex:1;text-align:center;letter-spacing:.3px;
+}
+.sw-btn{
+  font-size:11px;color:var(--dust);background:none;
+  border:1px solid var(--border);border-radius:999px;
+  padding:5px 12px;cursor:pointer;font-family:'Noto Sans KR',sans-serif;
+  transition:all .2s;white-space:nowrap;
+}
+.sw-btn:hover{border-color:var(--rose);color:var(--rose)}
+
+.ptabs-wrap{
+  background:rgba(253,249,246,.96);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+  position:sticky;top:53px;z-index:190;
+}
+.ptabs{max-width:640px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr)}
+.ptab{
+  padding:13px 6px 11px;border:none;background:transparent;cursor:pointer;
+  font-family:'Noto Sans KR',sans-serif;color:var(--dust);
+  border-bottom:2px solid transparent;transition:all .2s;
+  display:flex;flex-direction:column;align-items:center;gap:2px;
+}
+.ptab .lbl{font-size:10px;letter-spacing:1.8px;text-transform:uppercase;font-weight:300}
+.ptab .nm{font-size:13px;font-weight:400}
+.ptab.on{color:var(--rose);border-bottom-color:var(--rose)}
+.ptab:hover:not(.on){color:var(--ink)}
+
+.pick-banner{
+  max-width:640px;margin:0 auto;
+  padding:8px 18px;background:var(--petal);
+  border-bottom:1px solid var(--border);
+  font-size:12px;color:var(--deep);
+  display:none;align-items:center;gap:6px;flex-wrap:wrap;
+}
+.pick-banner.show{display:flex}
+
+.content{max-width:640px;margin:0 auto;padding:0 18px 100px}
+.panel{display:none;animation:up .25s ease both}
+.panel.on{display:block}
+@keyframes up{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+.ph{padding:28px 0 22px;border-bottom:1px solid var(--border);margin-bottom:26px}
+.ptag{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--rose);display:block;margin-bottom:8px;font-weight:400}
+.ptitle{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(26px,6vw,36px);font-weight:300;line-height:1.12;
+}
+.ptitle em{font-style:italic;color:var(--rose)}
+.pmood{margin-top:9px;font-size:12.5px;color:var(--dust);font-weight:300;line-height:1.7}
+
+.tl{display:flex;flex-direction:column}
+.stop{
+  display:grid;grid-template-columns:48px 1fr;
+  gap:0 14px;padding-bottom:20px;position:relative;
+}
+.stop:last-child{padding-bottom:0}
+.stop::before{
+  content:'';position:absolute;left:23px;top:28px;bottom:0;
+  width:1px;background:linear-gradient(to bottom,var(--blush) 60%,transparent);
+}
+.stop:last-child::before{display:none}
+.st{text-align:right;padding-top:3px}
+.st .t{
+  font-family:'Cormorant Garamond',serif;font-size:13px;
+  font-weight:400;color:var(--rose);display:block;line-height:1;
+}
+.st .dot{
+  width:7px;height:7px;border-radius:50%;background:var(--rose);
+  margin:8px 0 0 auto;position:relative;z-index:1;
+  box-shadow:0 0 0 3px var(--cream);
+}
+.sc{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:12px;padding:13px 15px;
+  transition:box-shadow .2s,border-color .2s;
+}
+.sc:hover{box-shadow:0 4px 18px rgba(196,122,94,.07);border-color:rgba(196,122,94,.22)}
+.sname{font-size:13.5px;font-weight:500;color:var(--ink);margin-bottom:3px;line-height:1.3}
+.sadr{font-size:11px;color:var(--dust);font-weight:300;margin-bottom:5px}
+.sdesc{font-size:12.5px;color:#5e5249;font-weight:300;line-height:1.72}
+.stip{
+  margin-top:8px;padding:7px 11px;background:var(--petal);
+  border-radius:7px;font-size:11.5px;color:var(--deep);line-height:1.6;
+}
+
+.map-link{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:11px;color:var(--rose);font-weight:400;
+  text-decoration:none;margin-top:6px;
+  padding:3px 9px;border:1px solid rgba(196,122,94,0.25);
+  border-radius:999px;transition:all .2s;background:var(--petal);
+}
+.map-link:hover{background:var(--rose);color:white;border-color:var(--rose)}
+.map-link svg{width:10px;height:10px;fill:currentColor;flex-shrink:0}
+
+.alts{margin-top:10px}
+.alts-lbl{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dust);display:block;margin-bottom:6px}
+.alt-list{display:flex;flex-direction:column;gap:5px}
+.alt-btn{
+  padding:9px 12px;border:1.5px solid var(--border);border-radius:9px;
+  background:var(--cream);cursor:pointer;
+  font-family:'Noto Sans KR',sans-serif;font-size:12px;font-weight:300;
+  color:var(--ink);text-align:left;transition:all .2s;
+  display:flex;flex-direction:column;gap:0;width:100%;
+}
+.alt-btn:hover{border-color:var(--rose);background:var(--white)}
+.alt-btn.sel{border-color:var(--rose);background:var(--petal);font-weight:400;color:var(--deep)}
+.alt-btn .at{line-height:1.55;flex:1}
+.alt-btn .sel-row{
+  display:flex;align-items:center;gap:6px;margin-top:6px;flex-wrap:wrap;
+}
+.tag{
+  display:inline-block;font-size:9px;letter-spacing:.8px;text-transform:uppercase;
+  border-radius:4px;padding:1px 5px;margin-left:5px;vertical-align:middle;
+  color:white;background:var(--rose);
+}
+.pick-btn.done{background:var(--rose);pointer-events:auto}
+.pick-btn.done:hover{background:#a35f46}
+
+.pick-wrap{
+  margin-top:28px;padding:20px 18px;
+  background:var(--white);border:1px solid var(--border);
+  border-radius:16px;text-align:center;
+}
+.pick-msg{font-size:12.5px;color:var(--dust);font-weight:300;margin-bottom:14px;line-height:1.6}
+.pick-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 34px;background:var(--ink);color:var(--cream);
+  border:none;border-radius:999px;
+  font-family:'Noto Sans KR',sans-serif;font-size:13px;font-weight:400;
+  cursor:pointer;transition:background .22s,transform .15s;
+}
+.pick-btn:hover{background:var(--rose);transform:scale(1.03)}
+.pick-btn:active{transform:scale(.98)}
+.pick-other{margin-top:10px;font-size:12px;color:var(--rose);font-weight:400;min-height:18px}
+
+.divider{display:flex;align-items:center;gap:12px;margin:26px 0 16px}
+.divider span{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--dust);white-space:nowrap}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:rgba(196,122,94,.15)}
+
+.clist{display:flex;flex-direction:column;gap:9px;margin-bottom:12px}
+.c-item{
+  padding:10px 13px;border-radius:11px;
+  font-size:13px;line-height:1.6;font-weight:300;max-width:84%;
+}
+.c-item.hy{background:#eef3f9;border-radius:3px 11px 11px 11px;align-self:flex-start}
+.c-item.ky{background:#fceaea;border-radius:11px 3px 11px 11px;align-self:flex-end;text-align:right}
+.c-meta{font-size:10px;color:var(--dust);margin-bottom:3px;display:flex;align-items:center;gap:5px}
+.c-item.ky .c-meta{justify-content:flex-end}
+.c-text{color:var(--ink)}
+.no-c{text-align:center;padding:18px;font-size:12.5px;color:var(--dust);font-weight:300}
+.cinput-wrap{display:flex;gap:8px;align-items:flex-end}
+.cinput{
+  flex:1;padding:10px 14px;
+  border:1.5px solid var(--border);border-radius:11px;
+  background:var(--white);
+  font-family:'Noto Sans KR',sans-serif;font-size:13px;font-weight:300;
+  color:var(--ink);resize:none;min-height:42px;max-height:100px;
+  outline:none;transition:border-color .2s;
+}
+.cinput::placeholder{color:#c4b0a8}
+.cinput:focus{border-color:var(--rose)}
+.csend{
+  width:38px;height:38px;border-radius:50%;background:var(--ink);
+  border:none;cursor:pointer;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;transition:background .2s;
+}
+.csend:hover{background:var(--rose)}
+.csend svg{width:14px;height:14px;fill:white}
+
+.toast{
+  position:fixed;bottom:26px;left:50%;
+  transform:translateX(-50%) translateY(70px);
+  background:var(--ink);color:var(--cream);
+  padding:11px 22px;border-radius:999px;
+  font-size:13px;pointer-events:none;white-space:nowrap;
+  transition:transform .34s cubic-bezier(.34,1.56,.64,1);z-index:999;
+}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+.who-pip{font-size:11px;padding:2px 8px;border-radius:999px;font-weight:400;display:inline-block;margin-top:4px}
+.who-pip.hy{background:#edf2f9;color:#3a6090}
+.who-pip.ky{background:#fceaea;color:#903a3a}
+
+.pw-wrap{
+  display:flex;flex-direction:column;gap:10px;
+  width:100%;max-width:280px;margin:0 auto;
+}
+.pw-input{
+  width:100%;padding:14px 16px;
+  border:1.5px solid var(--border);border-radius:12px;
+  background:var(--white);font-family:'Noto Sans KR',sans-serif;
+  font-size:22px;letter-spacing:6px;text-align:center;
+  outline:none;transition:border-color .2s;color:var(--ink);
+}
+.pw-input:focus{border-color:var(--rose)}
+.pw-input::placeholder{letter-spacing:2px;font-size:14px;color:#c4b0a8}
+.pw-btn{
+  width:100%;padding:14px;background:var(--ink);color:var(--cream);
+  border:none;border-radius:12px;cursor:pointer;
+  font-family:'Noto Sans KR',sans-serif;font-size:14px;font-weight:400;
+  transition:background .2s;
+}
+.pw-btn:hover{background:var(--rose)}
+.pw-btn:active{background:var(--rose)}
+.pw-err{
+  margin-top:8px;font-size:12px;color:var(--rose);
+  font-weight:400;min-height:18px;text-align:center;
+}
+
+@media(max-width:480px){
+  .content{padding:0 14px 100px}
+  .stop{grid-template-columns:44px 1fr;gap:0 10px}
+  .sc{padding:11px 13px}
+  .ptab .nm{font-size:12px}
+  .pick-btn{padding:12px 26px;font-size:13px}
+  .bar-title{font-size:16px}
+}
+
+#date-select{position:fixed;inset:0;z-index:9998;background:var(--cream);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 24px}
+#pw-gate{position:fixed;inset:0;z-index:9999;background:var(--cream);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 24px}
+#who-gate{display:none;position:fixed;inset:0;z-index:9997;background:var(--cream);flex-direction:column;align-items:center;justify-content:center;padding:32px 24px}
+.date-list{display:flex;flex-direction:column;gap:12px;width:100%;max-width:300px;margin-top:32px}
+.date-btn{padding:18px 20px;border:1.5px solid var(--border);border-radius:16px;background:var(--white);cursor:pointer;font-family:'Noto Sans KR',sans-serif;display:flex;align-items:center;gap:14px;transition:border-color .2s,box-shadow .2s;text-align:left}
+.date-btn:hover{border-color:var(--rose);box-shadow:0 6px 20px rgba(196,122,94,0.1)}
+.date-icon{width:42px;height:42px;border-radius:12px;background:var(--petal);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.date-info .ddate{font-size:15px;font-weight:500;display:block;margin-bottom:2px}
+.date-info .ddesc{font-size:12px;color:var(--dust);font-weight:300}
+#login-apr17{position:fixed;inset:0;z-index:9999;background:var(--cream);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 24px}
+#app-apr17{display:none}
+</style>
+</head>
+<body>
+
+<!-- ══ PW GATE ══ -->
+<div id="pw-gate">
+  <div style="font-size:28px;letter-spacing:6px;margin-bottom:20px;opacity:.7">🌮 🍸 🌮</div>
+  <h1 class="login-title">우리<br><em>데이트 플랜</em></h1>
+  <p class="login-sub" style="margin-bottom:24px">비밀번호를 입력해줘</p>
+  <div class="pw-wrap">
+    <input type="password" id="gate-pw-input" class="pw-input" placeholder="····"
+      onkeydown="if(event.key==='Enter') gateCheck()" maxlength="10" />
+    <button class="pw-btn" onclick="gateCheck()">확인</button>
+  </div>
+  <p class="pw-err" id="gate-pw-err"></p>
+</div>
+
+<!-- ══ WHO GATE ══ -->
+<div id="who-gate">
+  <div style="font-size:28px;letter-spacing:6px;margin-bottom:20px;opacity:.7">🌮 🍸 🌮</div>
+  <h1 class="login-title">우리<br><em>데이트 플랜</em></h1>
+  <p class="login-sub">나는 누구야?</p>
+  <div class="who-list">
+    <button class="who-btn hy" onclick="gateWho('hy')">
+      <div class="who-av">🧑</div>
+      <div class="who-info"><span class="wname">서현일</span><span class="wrole">코스 짠 사람</span></div>
+    </button>
+    <button class="who-btn ky" onclick="gateWho('ky')">
+      <div class="who-av">👩</div>
+      <div class="who-info"><span class="wname">김진경</span><span class="wrole">초대받은 사람</span></div>
+    </button>
+  </div>
+</div>
+
+<!-- ══ DATE SELECT ══ -->
+<div id="date-select" style="display:none">
+  <div style="font-size:28px;letter-spacing:6px;margin-bottom:20px;opacity:.7">🌮 🍸 🌮</div>
+  <h1 class="login-title">우리<br><em>데이트 플랜</em></h1>
+  <p class="login-sub" id="ds-who-name" style="margin-bottom:8px"></p>
+  <div class="date-list">
+    <button class="date-btn" onclick="selectDate('apr17')">
+      <div class="date-icon">🌮</div>
+      <div class="date-info"><span class="ddate">4월 17일 금요일</span><span class="ddesc">이태원 멕시칸 + 칵테일 코스</span></div>
+    </button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════ -->
+<!-- 4월 17일 — 이태원 -->
+<!-- ══════════════════════════════════════════ -->
+<div id="login-apr17" style="display:none"></div>
+
+<div id="app-apr17" style="display:none">
+
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="me-chip">
+        <div class="me-av" id="me-av-apr17"></div>
+        <span class="me-name" id="me-name-apr17"></span>
+      </div>
+      <div class="bar-title">🌮 4월 17일 · 이태원</div>
+      <button class="sw-btn" onclick="doLogout('apr17')">사람 바꾸기</button>
+    </div>
+  </div>
+
+  <div class="ptabs-wrap">
+    <div class="ptabs">
+      <button class="ptab on" onclick="swP('apr17','a',this)">
+        <span class="lbl">Plan A</span><span class="nm">이태원·XOLO</span>
+      </button>
+      <button class="ptab" onclick="swP('apr17','b',this)">
+        <span class="lbl">Plan B</span><span class="nm">교대·서래마을</span>
+      </button>
+      <button class="ptab" onclick="swP('apr17','c',this)">
+        <span class="lbl">Plan C</span><span class="nm">삼성·강남</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="pick-banner" id="banner-apr17">
+    <span id="banner-txt-apr17"></span>
+  </div>
+
+  <div class="content">
+
+    <!-- ══ PLAN A ══ -->
+    <div class="panel on" id="pa-apr17">
+      <div class="ph">
+        <span class="ptag">Plan A · 추천</span>
+        <h2 class="ptitle">XOLO &<br><em>분위기 풀파워</em></h2>
+        <p class="pmood">숄로 타코에서 마가리타 → 글램 라운지 칵테일 → 루프탑으로 마무리. 한 골목에서 다 해결.</p>
+      </div>
+      <div class="tl">
+
+        <div class="stop">
+          <div class="st"><span class="t">18:30</span><div class="dot"></div></div>
+          <div class="sc">
+            <div class="sname">🚇 교대역 출발</div>
+            <div class="sdesc">3호선 → 고속터미널 7호선 환승 → 녹사평역. 약 25분. 택시는 금요일 러시라 40분+ 각오.</div>
+          </div>
+        </div>
+
+        <div class="stop">
+          <div class="st"><span class="t">19:00</span><div class="dot"></div></div>
+          <div class="sc">
+            <div class="sname">🌮 XOLO 숄로 (1차 저녁+술)</div>
+            <div class="sadr">서울 용산구 이태원로27가길 43 1층</div>
+            <div class="sdesc">구글 평점 4.9 / 504 리뷰. '펍 멕시카노' 컨셉이라 저녁+술이 자연스럽게 섞임. 비리아 타코가 서울 탑급이라는 평. 마가리타·망고 프레스카 시그니처.</div>
+            <div class="stip">금요일은 예약 필수 (네이버예약 가능). 새벽 3시까지 영업 → 2차 안 가도 여기서 해결됨.</div>
+            <a class="map-link" href="https://map.naver.com/p/search/%EC%88%84%EB%A1%9C%20%EC%9D%B4%ED%83%9C%EC%9B%90" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버 지도</a>
+          </div>
+        </div>
+
+        <div class="stop">
+          <div class="st"><span class="t">21:30</span><div class="dot"></div></div>
+          <div class="sc">
+            <div class="sname">🍸 글램 라운지 (2차)</div>
+            <div class="sadr">서울 용산구 이태원로27가길 26, 2층</div>
+            <div class="sdesc">XOLO에서 도보 1분. 19세기 프랑스 앤티크 조명 + 대리석 바. 바텐더가 눈앞에서 만드는 걸 보면서 마실 수 있음. 피나콜라다가 시그니처.</div>
+            <div class="stip">일~수 19:00–03:00 / 목 19:00–04:00 / 금토 19:00–05:30</div>
+            <a class="map-link" href="https://map.naver.com/p/search/%EA%B8%80%EB%9E%A8%EB%9D%BC%EC%9A%B4%EC%A7%80%20%EC%9D%B4%ED%83%9C%EC%9B%90" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버 지도</a>
+          </div>
+        </div>
+
+        <div class="stop">
+          <div class="st"><span class="t">23:00</span><div class="dot"></div></div>
+          <div class="sc">
+            <div class="sname">🌙 마무리</div>
+            <div class="alts">
+              <span class="alts-lbl">골라줘</span>
+              <div class="alt-list" id="alt-end-a-apr17">
+                <button class="alt-btn" data-k="end-a" data-v="privilege" onclick="selAlt(this)">
+                  <span class="at">프리빌리지 — 몬드리안 호텔 루프탑. 서울타워 뷰. 택시 5분 <span class="tag">추천</span> <a class="map-link" href="https://map.naver.com/p/search/%ED%94%84%EB%A6%AC%EB%B9%8C%EB%A6%AC%EC%A7%80%20%EC%9D%B4%ED%83%9C%EC%9B%90" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                </button>
+                <button class="alt-btn" data-k="end-a" data-v="stay" onclick="selAlt(this)">
+                  <span class="at">글램에서 더 있다 가기 — 새벽 5시 반까지 열려있음</span>
+                </button>
+                <button class="alt-btn" data-k="end-a" data-v="home" onclick="selAlt(this)">
+                  <span class="at">택시 타고 집으로 — 진경이 교대 방향, 현일 종로 방향 👋</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="pick-wrap">
+        <p class="pick-msg">이 코스 어때? 마음에 들면 눌러줘</p>
+        <button class="pick-btn" id="pk-a-apr17" onclick="pickPlan('apr17','a')"><span>Plan A 좋아!</span></button>
+        <div class="pick-other" id="po-a-apr17"></div>
+      </div>
+      <div class="divider"><span>대화</span></div>
+      <div class="clist" id="cl-a-apr17"></div>
+      <div class="cinput-wrap">
+        <textarea class="cinput" id="ci-a-apr17" placeholder="코멘트 남기기..." rows="1"
+          oninput="autoH(this)" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendC('apr17','a')}"></textarea>
+        <button class="csend" onclick="sendC('apr17','a')"><svg viewBox="0 0 24 24"><path d="M2 21L23 12 2 3v7l15 2-15 2z"/></svg></button>
+      </div>
+    </div>
+
+    <!-- ══ PLAN B ══ -->
+    <div class="panel" id="pb-apr17">
+      <div class="ph">
+        <span class="ptag">Plan B</span>
+        <h2 class="ptitle">교대 &<br><em>서래마을 프렌치</em></h2>
+        <p class="pmood">교대역 도보 10분권. 서래마을 프랑스 감성 레스토랑 → 반포 한강뷰 바 → 고속터미널 루프탑 마무리.</p>
+      </div>
+      <div class="tl">
+
+        <div class="stop">
+          <div class="st"><span class="t">18:30</span><div class="dot"></div></div>
+          <div class="sc">
+            <div class="sname">🚶 교대역 출발</div>
+            <div class="sdesc">집에서 도보 or 버스 5분. 근거리 데이트의 여유로움.</div>
+          </div>
+        </div>
+
+        <div class="stop">
+          <div class="st"><span class="t">18:40</span><div class="dot"></div></div>
+          <div class="sc">
+            <div class="sname">🥖 서래마을 프랑스 레스토랑 (1차)</div>
+            <div class="sadr">서초구 반포동 서래마을 일대</div>
+            <div class="sdesc">교대역에서 도보 10분. 프랑스 사람들이 직접 운영하는 진짜 프랑스 분위기. 까페드파리, 르브레송 등 현지 감성 레스토랑.</div>
+            <div class="stip">예약 권장. 와인 페어링 가능. 프랑스 홈메이드 스타일.</div>
+            <div class="alts">
+              <span class="alts-lbl">골라줘</span>
+              <div class="alt-list" id="alt-restaurant-b-apr17">
+                <button class="alt-btn" data-k="restaurant-b" data-v="cafedeparis" onclick="selAlt(this)">
+                  <span class="at">까페드파리 — 서래마을 대표 비스트로. 프랑스인 사장. 스테이크 프리트 추천 <span class="tag">추천</span> <a class="map-link" href="https://map.naver.com/p/search/%EA%B9%8C%ED%8E%98%EB%93%9C%ED%8C%8C%EB%A6%AC%20%EC%84%9C%EB%9E%98%EB%A7%88%EC%9D%84" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                </button>
+                <button class="alt-btn" data-k="restaurant-b" data-v="lebresson" onclick="selAlt(this)">
+                  <span class="at">르브레송 — 프랑스 파인다이닝. 정찬 코스 분위기 좋음 <a class="map-link" href="https://map.naver.com/p/search/%EB%A5%B4%EB%B8%8C%EB%A0%88%EC%86%A1%20%EC%84%9C%EB%9E%98%EB%A7%88%EC%9D%84" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                </button>
+                <button class="alt-btn" data-k="restaurant-b" data-v="casual" onclick="selAlt(this)">
+                  <span class="at">교대역 근처 캐주얼 — 이탈리안·한식 등 부담 없는 선택</span>
+                </button>
+              </div>
+            </div>
+            <a class="map-link" href="https://map.naver.com/p/search/%EC%84%9C%EB%9E%98%EB%A7%88%EC%9D%84%20%EB%A0%88%EC%8A%A4%ED%86%A0%EB%9E%91" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버 지도</a>
+          </div>
+        </div>
+
+        <div class="stop">
+          <div class="st"><span class="t">20:30</span><div class="dot"></div></div>
+          <div class="sc">
+            <div class="sname">🍸 반포 한강뷰 바 (2차)</div>
+            <div class="sadr">반포한강공원 인근 한강뷰 레스토랑</div>
+            <div class="sdesc">서래마을에서 택시 5분. 한강이 보이는 루프탑이나 와인바. 서울 야경과 강뷰를 동시에. 반포대교 무지개분수 시간 맞추면 보너스.</div>
+            <div class="stip">21:00-21:20, 22:00-22:20 무지개분수 가동 (4-10월)</div>
+            <a class="map-link" href="https://map.naver.com/p/search/%EB%B0%98%ED%8F%AC%20%ED%95%9C%EA%B0%95%EB%B7%B0%20%EB%A0%88%EC%8A%A4%ED%86%A0%EB%9E%91" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버 지도</a>
+          </div>
+        </div>
+
+        <div class="stop">
+          <div class="st"><span class="t">22:30</span><div class="dot"></div></div>
+          <div class="sc">
+            <div class="sname">🌙 마무리</div>
+            <div class="alts">
+              <span class="alts-lbl">골라줘</span>
+              <div class="alt-list" id="alt-end-b-apr17">
+                <button class="alt-btn" data-k="end-b" data-v="terminal" onclick="selAlt(this)">
+                  <span class="at">고속터미널 센트럴시티 — 쇼핑몰 카페·바 늦은 시간까지 영업 <span class="tag">추천</span> <a class="map-link" href="https://map.naver.com/p/search/%EA%B3%A0%EC%86%8D%ED%84%B0%EB%AF%B8%EB%84%90%20%EC%84%BC%ED%8A%B8%EB%9F%B4%EC%8B%9C%ED%8B%B0" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                </button>
+                <button class="alt-btn" data-k="end-b" data-v="hangang" onclick="selAlt(this)">
+                  <span class="at">반포한강공원 야간 산책 — 날씨 좋으면 강변 걸으면서 대화</span>
+                </button>
+                <button class="alt-btn" data-k="end-b" data-v="home" onclick="selAlt(this)">
+                  <span class="at">진경이 집 앞까지 — 교대역 근처라 도보로 👋</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="pick-wrap">
+        <p class="pick-msg">이 코스 어때? 마음에 들면 눌러줘</p>
+        <button class="pick-btn" id="pk-b-apr17" onclick="pickPlan('apr17','b')"><span>Plan B 좋아!</span></button>
+        <div class="pick-other" id="po-b-apr17"></div>
+      </div>
+      <div class="divider"><span>대화</span></div>
+      <div class="clist" id="cl-b-apr17"></div>
+      <div class="cinput-wrap">
+        <textarea class="cinput" id="ci-b-apr17" placeholder="코멘트 남기기..." rows="1"
+          oninput="autoH(this)" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendC('apr17','b')}"></textarea>
+        <button class="csend" onclick="sendC('apr17','b')"><svg viewBox="0 0 24 24"><path d="M2 21L23 12 2 3v7l15 2-15 2z"/></svg></button>
+      </div>
+    </div>
+
+    <!-- ══ PLAN C ══ -->
+    <div class="panel" id="pc-apr17">
+      <div class="ph">
+        <span class="ptag">Plan C</span>
+        <h2 class="ptitle">삼성 &<br><em>강남 감성</em></h2>
+        <p class="pmood">2호선 직통 삼성역. 코엑스 파인다이닝 → 강남 루프탑 바 → 봉은사 야경 산책 or 압구정 심야 카페.</p>
+      </div>
+      <div class="tl">
+
+        <div class="stop">
+          <div class="st"><span class="t">18:30</span><div class="dot"></div></div>
+          <div class="sc">
+            <div class="sname">🚇 교대역 출발</div>
+            <div class="sdesc">2호선 직통 삼성역. 약 20분. 강남의 심장부로 직행.</div>
+          </div>
+        </div>
+
+        <div class="stop">
+          <div class="st"><span class="t">19:00</span><div class="dot"></div></div>
+          <div class="sc">
+            <div class="sname">🍽️ 삼성역 파인다이닝 (1차)</div>
+            <div class="sadr">서울 강남구 삼성동 일대 (코엑스몰 or 삼성동)</div>
+            <div class="sdesc">코엑스몰 안 고급 레스토랑가 or 삼성동 오피스텔 상가 파인다이닝. 강남 감성의 모던한 분위기. 일식·양식·이탈리안 다양한 선택지.</div>
+            <div class="stip">금요일 저녁 예약 필수. 코엑스 주차 2시간 무료 (식사 영수증 제시)</div>
+            <div class="alts">
+              <span class="alts-lbl">골라줘</span>
+              <div class="alt-list" id="alt-restaurant-c-apr17">
+                <button class="alt-btn" data-k="restaurant-c" data-v="coex" onclick="selAlt(this)">
+                  <span class="at">코엑스몰 레스토랑가 — 푸드코트 말고 정식 레스토랑. 여러 옵션 골라보기 <span class="tag">추천</span> <a class="map-link" href="https://map.naver.com/p/search/%EC%BD%94%EC%97%91%EC%8A%A4%EB%AA%B0%20%EB%A0%88%EC%8A%A4%ED%86%A0%EB%9E%91" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                </button>
+                <button class="alt-btn" data-k="restaurant-c" data-v="finedining" onclick="selAlt(this)">
+                  <span class="at">삼성동 파인다이닝 — 오마카세·스테이크하우스 등 강남 고급 레스토랑 <a class="map-link" href="https://map.naver.com/p/search/%EC%82%BC%EC%84%B1%EB%8F%99%20%ED%8C%8C%EC%9D%B8%EB%8B%A4%EC%9D%B4%EB%8B%9D" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                </button>
+                <button class="alt-btn" data-k="restaurant-c" data-v="casual" onclick="selAlt(this)">
+                  <span class="at">삼성역 근처 캐주얼 — 이탈리안·일식 등 적당한 가격대</span>
+                </button>
+              </div>
+            </div>
+            <a class="map-link" href="https://map.naver.com/p/search/%EC%82%BC%EC%84%B1%EC%97%AD%20%EB%A7%9B%EC%A7%91" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버 지도</a>
+          </div>
+        </div>
+
+        <div class="stop">
+          <div class="st"><span class="t">21:00</span><div class="dot"></div></div>
+          <div class="sc">
+            <div class="sname">🍸 강남 루프탑 바 (2차)</div>
+            <div class="sadr">강남구 역삼동·논현동 일대</div>
+            <div class="sdesc">삼성역에서 택시 5분 거리. 강남 스카이라인이 보이는 루프탑 칵테일바. 서울 야경을 배경으로 한 잔. 강남 감성 제대로.</div>
+            <div class="stip">날씨 안 좋으면 실내 하이엔드 칵테일바로 대체</div>
+            <a class="map-link" href="https://map.naver.com/p/search/%EA%B0%95%EB%82%A8%20%EB%A3%A8%ED%94%84%ED%83%91%20%EC%B9%B5%ED%85%8C%EC%9D%BC%EB%B0%94" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버 지도</a>
+          </div>
+        </div>
+
+        <div class="stop">
+          <div class="st"><span class="t">22:30</span><div class="dot"></div></div>
+          <div class="sc">
+            <div class="sname">🌙 마무리</div>
+            <div class="alts">
+              <span class="alts-lbl">골라줘</span>
+              <div class="alt-list" id="alt-end-c-apr17">
+                <button class="alt-btn" data-k="end-c" data-v="bongeunsa" onclick="selAlt(this)">
+                  <span class="at">봉은사 야경 산책 — 삼성역 바로 옆. 도심 속 사찰 야경이 운치 있음 <span class="tag">추천</span> <a class="map-link" href="https://map.naver.com/p/search/%EB%B4%89%EC%9D%80%EC%82%AC%20%EC%95%BC%EA%B2%BD" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                </button>
+                <button class="alt-btn" data-k="end-c" data-v="apgujeong" onclick="selAlt(this)">
+                  <span class="at">압구정 심야 카페 — 로데오거리 심야 감성. 좀 더 있고 싶으면 <a class="map-link" href="https://map.naver.com/p/search/%EC%95%95%EA%B5%AC%EC%A0%95%20%EC%8B%AC%EC%95%BC%EC%B9%B4%ED%8E%98" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                </button>
+                <button class="alt-btn" data-k="end-c" data-v="home" onclick="selAlt(this)">
+                  <span class="at">2호선 타고 집으로 — 교대까지 한 번에 👋</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="pick-wrap">
+        <p class="pick-msg">이 코스 어때? 마음에 들면 눌러줘</p>
+        <button class="pick-btn" id="pk-c-apr17" onclick="pickPlan('apr17','c')"><span>Plan C 좋아!</span></button>
+        <div class="pick-other" id="po-c-apr17"></div>
+      </div>
+      <div class="divider"><span>대화</span></div>
+      <div class="clist" id="cl-c-apr17"></div>
+      <div class="cinput-wrap">
+        <textarea class="cinput" id="ci-c-apr17" placeholder="코멘트 남기기..." rows="1"
+          oninput="autoH(this)" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendC('apr17','c')}"></textarea>
+        <button class="csend" onclick="sendC('apr17','c')"><svg viewBox="0 0 24 24"><path d="M2 21L23 12 2 3v7l15 2-15 2z"/></svg></button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+<script>
+firebase.initializeApp({
+  apiKey:"AIzaSyA6OiSFmxW3IL-FxjLcJVU9yvBlN8noU80",
+  authDomain:"hyuniljinkyung.firebaseapp.com",
+  databaseURL:"https://hyuniljinkyung-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId:"hyuniljinkyung",
+  storageBucket:"hyuniljinkyung.firebasestorage.app",
+  messagingSenderId:"265572200962",
+  appId:"1:265572200962:web:e3702c1318ae098b11ed1b"
+});
+const db = firebase.database();
+const NAMES={hy:'서현일',ky:'김진경'};
+const EMOJIS={hy:'🧑',ky:'👩'};
+const PLAN_NAMES_MAP={
+  apr17:{a:'Plan A · 이태원 XOLO',b:'Plan B · 교대 서래마을',c:'Plan C · 삼성 강남'}
+};
+const PW='0104';
+let ME=null,DATE_KEY=null,listeners=[];
+const dbRef=path=>db.ref(`${DATE_KEY}/${path}`);
+
+function gateCheck(){
+  const inp=document.getElementById('gate-pw-input');
+  if(inp.value.trim()===PW){
+    localStorage.setItem('dp_pw_ok','1');
+    document.getElementById('pw-gate').style.display='none';
+    document.getElementById('who-gate').style.display='flex';
+  }else{
+    const err=document.getElementById('gate-pw-err');
+    err.textContent='비밀번호가 틀렸어 🙅';
+    inp.value='';
+    setTimeout(()=>{err.textContent='';},2000);
+  }
+}
+window.gateCheck=gateCheck;
+
+function gateWho(who){
+  ME=who;localStorage.setItem('dp_me',who);
+  document.getElementById('who-gate').style.display='none';
+  document.getElementById('date-select').style.display='flex';
+  document.getElementById('ds-who-name').textContent=EMOJIS[who]+' '+NAMES[who]+' 안녕!';
+}
+window.gateWho=gateWho;
+
+function selectDate(dk){
+  if(DATE_KEY===dk&&document.getElementById('app-'+dk).style.display==='block')return;
+  if(DATE_KEY&&DATE_KEY!==dk){stopListeners();document.getElementById('app-'+DATE_KEY).style.display='none';}
+  DATE_KEY=dk;localStorage.setItem('dp_date',dk);
+  document.getElementById('date-select').style.display='none';
+  const av=document.getElementById('me-av-'+dk);
+  if(av){av.textContent=EMOJIS[ME];av.className='me-av '+ME;}
+  const nm=document.getElementById('me-name-'+dk);
+  if(nm) nm.textContent=NAMES[ME];
+  const appEl=document.getElementById('app-'+dk);
+  if(appEl&&!appEl.dataset.backAdded){
+    const inner=appEl.querySelector('.topbar-inner');
+    if(inner){
+      const btn=document.createElement('button');
+      btn.className='sw-btn';btn.textContent='날짜 변경';
+      btn.onclick=()=>changeDateScreen();
+      inner.insertBefore(btn,inner.firstChild);
+    }
+    appEl.dataset.backAdded='1';
+  }
+  document.getElementById('app-'+dk).style.display='block';
+  startListeners();
+}
+window.selectDate=selectDate;
+
+function changeDateScreen(){
+  stopListeners();
+  document.getElementById('app-'+DATE_KEY).style.display='none';
+  document.getElementById('date-select').style.display='flex';
+}
+window.changeDateScreen=changeDateScreen;
+
+function doLogout(dk){
+  stopListeners();
+  document.getElementById('app-'+dk).style.display='none';
+  document.getElementById('who-gate').style.display='flex';
+  ME=null;localStorage.removeItem('dp_me');
+}
+window.doLogout=doLogout;
+
+function stopListeners(){listeners.forEach(({r,fn})=>r.off('value',fn));listeners=[];}
+function startListeners(){
+  stopListeners();const dk=DATE_KEY;
+  const pr=dbRef('picks'),pf=snap=>renderPicks(dk,snap.val()||{});
+  pr.on('value',pf);listeners.push({r:pr,fn:pf});
+  const ar=dbRef('alts'),af=snap=>renderAlts(dk,snap.val()||{});
+  ar.on('value',af);listeners.push({r:ar,fn:af});
+  ['a','b','c','d'].forEach(function(plan){
+    var cr=db.ref(dk+'/comments/'+plan),cf=function(snap){
+      var raw=snap.val();
+      var cmts=raw?Object.values(raw).sort(function(x,y){return x.ts-y.ts;}):[];
+      renderComments(dk,plan,cmts);
+    };
+    cr.on('value',cf);listeners.push({r:cr,fn:cf});
+  });
+}
+
+function swP(dk,id,el){
+  const appEl=document.getElementById('app-'+dk);
+  appEl.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'));
+  appEl.querySelectorAll('.ptab').forEach(t=>t.classList.remove('on'));
+  document.getElementById('p'+id+'-'+dk).classList.add('on');
+  el.classList.add('on');window.scrollTo({top:0,behavior:'smooth'});
+}
+window.swP=swP;
+
+async function pickPlan(dk,plan){
+  const snap=await db.ref(`${dk}/picks`).once('value');
+  const picks=snap.val()||{};
+  if(picks[ME]===plan){delete picks[ME];toast('선택 취소했어');}
+  else{picks[ME]=plan;toast('✓ '+PLAN_NAMES_MAP[dk][plan]+' 선택!');}
+  await db.ref(`${dk}/picks`).set(picks);
+}
+window.pickPlan=pickPlan;
+
+function renderPicks(dk,picks){
+  if(!ME)return;
+  const other=ME==='hy'?'ky':'hy';
+  const ps={a:'A',b:'B',c:'C'};
+  const parts=[];
+  ['hy','ky'].forEach(u=>{if(picks[u])parts.push(EMOJIS[u]+' '+NAMES[u]+': Plan '+ps[picks[u]]);} );
+  const banner=document.getElementById('banner-'+dk);
+  if(!banner)return;
+  if(parts.length){banner.classList.add('show');document.getElementById('banner-txt-'+dk).textContent='선택 현황 — '+parts.join('  ·  ');}
+  else banner.classList.remove('show');
+  ['a','b','c','d'].forEach(p=>{
+    const btn=document.getElementById('pk-'+p+'-'+dk);
+    const po=document.getElementById('po-'+p+'-'+dk);
+    if(!btn)return;
+    if(picks[ME]===p){btn.classList.add('done');btn.innerHTML='<span>✓ 선택완료 (취소하려면 다시 눌러)</span>';}
+    else{btn.classList.remove('done');btn.innerHTML='<span>Plan '+p.toUpperCase()+' 좋아!</span>';}
+    if(po)po.textContent=picks[other]===p?EMOJIS[other]+' '+NAMES[other]+'도 이 코스 선택함!':'';
+  });
+}
+
+async function selAlt(btn){
+  const k=btn.dataset.k,v=btn.dataset.v;
+  const snap=await db.ref(`${DATE_KEY}/alts`).once('value');
+  const alts=snap.val()||{};
+  if(!alts[ME])alts[ME]={};
+  if(alts[ME][k]===v){delete alts[ME][k];toast('선택 취소했어');}
+  else{alts[ME][k]=v;toast('선택 저장!');}
+  await db.ref(`${DATE_KEY}/alts`).set(alts);
+}
+window.selAlt=selAlt;
+
+function renderAlts(dk,alts){
+  if(!ME)return;
+  const other=ME==='hy'?'ky':'hy';
+  const appEl=document.getElementById('app-'+dk);
+  if(!appEl)return;
+  appEl.querySelectorAll('.alt-btn').forEach(btn=>{
+    const k=btn.dataset.k,v=btn.dataset.v;
+    const myV=alts[ME]&&alts[ME][k],otherV=alts[other]&&alts[other][k];
+    const isMySel=myV===v,isOtherSel=otherV===v;
+    btn.classList.toggle('sel',isMySel);
+    btn.querySelectorAll('.sel-row').forEach(el=>el.remove());
+    if(isMySel||isOtherSel){
+      const row=document.createElement('div');row.className='sel-row';
+      if(isMySel){const pip=document.createElement('span');pip.className='who-pip '+ME;pip.textContent=EMOJIS[ME]+' 나 좋아';row.appendChild(pip);}
+      if(isOtherSel){const pip=document.createElement('span');pip.className='who-pip '+other;pip.textContent=EMOJIS[other]+' '+NAMES[other]+' 선택';row.appendChild(pip);}
+      btn.appendChild(row);
+    }
+  });
+}
+
+async function sendC(dk,plan){
+  var inp=document.getElementById('ci-'+plan+'-'+dk);
+  var text=inp.value.trim();if(!text)return;
+  await db.ref(dk+'/comments/'+plan).push({u:ME,t:text,ts:Date.now()});
+  inp.value='';inp.style.height='auto';
+}
+window.sendC=sendC;
+
+function renderComments(dk,plan,comments){
+  var list=document.getElementById('cl-'+plan+'-'+dk);
+  if(!list)return;
+  if(!comments.length){list.innerHTML='<div class="no-c">아직 코멘트가 없어요</div>';return;}
+  list.innerHTML=comments.map(function(c){
+    var d=new Date(c.ts),time=d.getHours()+':'+String(d.getMinutes()).padStart(2,'0');
+    return '<div class="c-item '+c.u+'"><div class="c-meta"><span>'+EMOJIS[c.u]+'</span><span style="font-weight:400">'+NAMES[c.u]+'</span><span>'+time+'</span></div><div class="c-text">'+esc(c.t)+'</div></div>';
+  }).join('');
+}
+
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>');}
+function autoH(el){el.style.height='auto';el.style.height=Math.min(el.scrollHeight,100)+'px';}
+window.autoH=autoH;
+function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2400);}
+
+(function(){
+  const pwOk=localStorage.getItem('dp_pw_ok'),savedMe=localStorage.getItem('dp_me');
+  if(pwOk&&savedMe){
+    ME=savedMe;
+    document.getElementById('pw-gate').style.display='none';
+    document.getElementById('date-select').style.display='flex';
+    document.getElementById('ds-who-name').textContent=EMOJIS[ME]+' '+NAMES[ME]+' 안녕!';
+  }
+})();
+</script>
+</body>
+</html>
