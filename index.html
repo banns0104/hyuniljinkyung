@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <title>우리 데이트 플랜</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+KR:wght@300;400;500&display=swap');
@@ -704,10 +707,13 @@ body{background:var(--cream);font-family:'Noto Sans KR',sans-serif;color:var(--i
   <div class="ptabs-wrap">
     <div class="ptabs">
       <button class="ptab on" onclick="swP('may29','a',this)">
-        <span class="lbl">Day 1</span><span class="nm">5/29 금</span>
+        <span class="lbl">Plan A</span><span class="nm">안목·클래식</span>
       </button>
       <button class="ptab" onclick="swP('may29','b',this)">
-        <span class="lbl">Day 2</span><span class="nm">5/30 토</span>
+        <span class="lbl">Plan B</span><span class="nm">경포·한우</span>
+      </button>
+      <button class="ptab" onclick="swP('may29','c',this)">
+        <span class="lbl">Plan C</span><span class="nm">정동진·체험</span>
       </button>
     </div>
   </div>
@@ -716,321 +722,694 @@ body{background:var(--cream);font-family:'Noto Sans KR',sans-serif;color:var(--i
     <span id="banner-txt-may29"></span>
   </div>
 
-  <div class="panels">
+  <div class="content">
 
-    <!-- ══ DAY 1 (5월 29일 목요일) ══ -->
+    <!-- ══ PLAN A ══ -->
     <div class="panel on" id="pa-may29">
       <div class="ph">
-        <span class="ptag">Day 1 · 추천</span>
-        <h2 class="ptitle">5월 29일 금<br><em>강릉 바다 + 커피</em></h2>
-        <p class="pmood">금요일 점심 교대역 픽업 → 강릉 도착 → 안목해변 커피 → 해산물 저녁 → 오션뷰 호텔에서 1박. 동해 바람 맞으며 여유롭게.</p>
+        <span class="ptag">Plan A · 추천</span>
+        <h2 class="ptitle">안목 클래식<br><em>오션뷰 풀세트</em></h2>
+        <p class="pmood">안목해변 회 + 커피 + 신라모노그램 호텔. 강릉의 정석을 풀로 즐기는 코스. 1박 2일 동해 풀세트.</p>
       </div>
       <div class="tl">
-
+        <div style="margin:0 0 24px;padding:16px;background:rgba(196,122,94,0.08);border-radius:12px;text-align:center">
+          <span style="font-size:11px;letter-spacing:3px;color:var(--rose);font-weight:500">DAY 1 · 5/29 금</span>
+        </div>
         <div class="stop">
           <div class="st"><span class="t">12:00</span><div class="dot"></div></div>
           <div class="sc">
             <div class="sname">🚗 교대역 픽업 출발</div>
-            <div class="sdesc">금요일 점심 진경이 교대역에서 픽업 → 영동고속도로 진입. 강릉까지 약 3시간. 휴게소 한 번 들르는 일정.</div>
-            <div class="stip">금요일 점심 출발이라 비교적 한산. 횡성휴게소·평창휴게소 휴식 추천</div>
+            <div class="sdesc">금요일 점심 진경이 교대역 픽업 → 영동고속도로 진입. 강릉까지 약 3시간.</div>
+            <div class="stip">금요일 점심 출발이라 비교적 한산. 횡성·평창휴게소 휴식 추천</div>
           </div>
         </div>
-
         <div class="stop">
           <div class="st"><span class="t">15:30</span><div class="dot"></div></div>
           <div class="sc">
             <div class="sname">🍜 강릉 도착 → 늦은 점심</div>
-            <div class="sadr">강릉 도착 후 시내 맛집</div>
-            <div class="sdesc">강릉 대표 음식은 짬뽕순두부·막국수. 늦은 점심으로 가볍게 먹고 카페·해변으로 이동.</div>
+            <div class="sadr">강릉 시내 짬뽕순두부집</div>
+            <div class="sdesc">강릉 와서 첫 끼는 강릉 시그니처 짬뽕순두부. 짭짤·매콤·부드러움.</div>
             <div class="alts">
               <span class="alts-lbl">골라줘</span>
-              <div class="alt-list" id="alt-lunch-a-may29">
-                <button class="alt-btn" data-k="lunch-a" data-v="jjamppong" onclick="selAlt(this)">
-                  <span class="at">강릉짬뽕순두부 — 강릉 대표 4.7점. 매콤 짬뽕 + 부드러운 순두부 조합 시그니처 <span class="tag">추천</span> <a class="map-link" href="https://map.naver.com/p/search/%EA%B0%95%EB%A6%89%EC%A7%AC%EB%BD%95%EC%88%9C%EB%91%90%EB%B6%80" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+              <div class="alt-list" id="alt-a-lunch1-may29">
+                <button class="alt-btn" data-k="a-lunch1" data-v="jjamppong" onclick="selAlt(this)">
+                  <span class="at">강릉짬뽕순두부 — 강릉 대표 짬뽕순두부 4.7점. 매콤 짬뽕 + 부드러운 순두부 <span class="tag">추천</span> <a class="map-link" href="https://map.naver.com/p/search/%EA%B0%95%EB%A6%89%EC%A7%AC%EB%BD%95%EC%88%9C%EB%91%90%EB%B6%80" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
                 </button>
-                <button class="alt-btn" data-k="lunch-a" data-v="donghae" onclick="selAlt(this)">
-                  <span class="at">동해막국수 강문본점 — 트립어드바이저 5.0점. 시원한 육수 + 비빔양념 <a class="map-link" href="https://map.naver.com/p/search/%EB%8F%99%ED%95%B4%EB%A7%89%EA%B5%AD%EC%88%98%20%EA%B0%95%EB%AC%B8%EB%B3%B8%EC%A0%90" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                <button class="alt-btn" data-k="a-lunch1" data-v="donghae" onclick="selAlt(this)">
+                  <span class="at">동해막국수 강문본점 — 트립어드바이저 5.0점. 시원한 막국수 <a class="map-link" href="https://map.naver.com/p/search/%EB%8F%99%ED%95%B4%EB%A7%89%EA%B5%AD%EC%88%98%20%EA%B0%95%EB%AC%B8%EB%B3%B8%EC%A0%90" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
                 </button>
-                <button class="alt-btn" data-k="lunch-a" data-v="rest" onclick="selAlt(this)">
-                  <span class="at">휴게소에서 가볍게 → 점심 스킵 — 저녁 회를 위해 배 비우기 <a class="map-link" href="https://map.naver.com/p/search/%ED%8F%89%EC%B0%BD%ED%9C%B4%EA%B2%8C%EC%86%8C" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                <button class="alt-btn" data-k="a-lunch1" data-v="skip" onclick="selAlt(this)">
+                  <span class="at">휴게소에서 가볍게 → 점심 스킵 (저녁 회 위해)</span>
                 </button>
               </div>
             </div>
           </div>
         </div>
-
         <div class="stop">
           <div class="st"><span class="t">17:00</span><div class="dot"></div></div>
           <div class="sc">
             <div class="sname">☕ 안목해변 커피거리</div>
-            <div class="sadr">강원특별자치도 강릉시 창해로14번길 일대</div>
-            <div class="sdesc">강릉 = 커피 도시. 안목해변 따라 카페 30여 개 늘어선 거리. 오션뷰 루프탑에서 한 잔 하면서 바다 보기.</div>
-            <div class="stip">평일이라 자리 여유. 노을 시간 (18:30~19:00) 맞추면 보너스</div>
+            <div class="sadr">강릉시 창해로14번길 일대</div>
+            <div class="sdesc">안목해변 따라 카페 30여 개. 오션뷰 루프탑에서 한 잔. 노을 시간 맞추면 보너스.</div>
+            <div class="stip">평일이라 자리 여유. 일몰 19:30 전후</div>
             <div class="alts">
               <span class="alts-lbl">골라줘</span>
-              <div class="alt-list" id="alt-cafe-a-may29">
-                <button class="alt-btn" data-k="cafe-a" data-v="bossanova" onclick="selAlt(this)">
-                  <span class="at">보사노바 커피로스터스 — 안목해변 최초 루프탑. 5층 옥상에서 오션뷰. 라오스 농장 원두 <span class="tag">추천</span> <a class="map-link" href="https://map.naver.com/p/search/%EB%B3%B4%EC%82%AC%EB%85%B8%EB%B0%94%EC%BB%A4%ED%94%BC%EB%A1%9C%EC%8A%A4%ED%84%B0%EC%8A%A4%20%EA%B0%95%EB%A6%89" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+              <div class="alt-list" id="alt-a-cafe1-may29">
+                <button class="alt-btn" data-k="a-cafe1" data-v="bossanova" onclick="selAlt(this)">
+                  <span class="at">보사노바 커피로스터스 — 안목해변 최초 루프탑. 5층 옥상 오션뷰. 라오스 농장 원두 <span class="tag">추천</span> <a class="map-link" href="https://map.naver.com/p/search/%EB%B3%B4%EC%82%AC%EB%85%B8%EB%B0%94%EC%BB%A4%ED%94%BC%EB%A1%9C%EC%8A%A4%ED%84%B0%EC%8A%A4%20%EA%B0%95%EB%A6%89" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
                 </button>
-                <button class="alt-btn" data-k="cafe-a" data-v="santorini" onclick="selAlt(this)">
-                  <span class="at">산토리니커피 — 그리스 산토리니 컨셉 흰 벽 푸른 지붕. 핸드드립 + 테라스 안목뷰 <a class="map-link" href="https://map.naver.com/p/search/%EC%82%B0%ED%86%A0%EB%A6%AC%EB%8B%88%EC%BB%A4%ED%94%BC%20%EA%B0%95%EB%A6%89" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                <button class="alt-btn" data-k="a-cafe1" data-v="santorini" onclick="selAlt(this)">
+                  <span class="at">산토리니커피 — 그리스 산토리니 컨셉 흰 벽 푸른 지붕. 핸드드립 <a class="map-link" href="https://map.naver.com/p/search/%EC%82%B0%ED%86%A0%EB%A6%AC%EB%8B%88%EC%BB%A4%ED%94%BC%20%EA%B0%95%EB%A6%89" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
                 </button>
-                <button class="alt-btn" data-k="cafe-a" data-v="kicrus" onclick="selAlt(this)">
-                  <span class="at">키크러스 커피 — 3층 테라스 오션뷰. 연탄빵 시그니처. 브런치 메뉴도 있음 <a class="map-link" href="https://map.naver.com/p/search/%ED%82%A4%ED%81%AC%EB%9F%AC%EC%8A%A4%EC%BB%A4%ED%94%BC%20%EA%B0%95%EB%A6%89" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                <button class="alt-btn" data-k="a-cafe1" data-v="kicrus" onclick="selAlt(this)">
+                  <span class="at">키크러스 커피 — 3층 테라스 오션뷰. 연탄빵 시그니처 <a class="map-link" href="https://map.naver.com/p/search/%ED%82%A4%ED%81%AC%EB%9F%AC%EC%8A%A4%EC%BB%A4%ED%94%BC%20%EA%B0%95%EB%A6%89" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
                 </button>
               </div>
             </div>
-            <a class="map-link" href="https://map.naver.com/p/search/%EC%95%88%EB%AA%A9%ED%95%B4%EB%B3%80%20%EC%BB%A4%ED%94%BC%EA%B1%B0%EB%A6%AC" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버 지도</a>
           </div>
         </div>
-
         <div class="stop">
           <div class="st"><span class="t">19:30</span><div class="dot"></div></div>
           <div class="sc">
-            <div class="sname">🦞 저녁 (해산물·강릉 별미)</div>
-            <div class="sadr">안목해변·강문해변 인근 횟집·해산물집</div>
-            <div class="sdesc">강릉 와서 회 안 먹으면 섭섭. 강릉항회센터에서 즉석 회 or 분위기 좋은 강문가에서 세트 메뉴.</div>
+            <div class="sname">🦞 저녁 (해산물·회 풀세트)</div>
+            <div class="sadr">경포·강문 인근 횟집</div>
+            <div class="sdesc">강릉 와서 회 안 먹으면 섭섭. 강문가 30년 전통 세트가 활어회·홍게찜·물회·꼬막비빔밥 풀세트.</div>
             <div class="alts">
               <span class="alts-lbl">골라줘</span>
-              <div class="alt-list" id="alt-dinner-a-may29">
-                <button class="alt-btn" data-k="dinner-a" data-v="gangmunga" onclick="selAlt(this)">
-                  <span class="at">강문가 — 서민갑부 출연. 강문가세트(활어회+물회+홍게찜+꼬막비빔밥). 통창뷰 <span class="tag">추천</span> <a class="map-link" href="https://map.naver.com/p/search/%EA%B0%95%EB%AC%B8%EA%B0%80%20%EA%B0%95%EB%A6%89" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+              <div class="alt-list" id="alt-a-dinner1-may29">
+                <button class="alt-btn" data-k="a-dinner1" data-v="gangmunga" onclick="selAlt(this)">
+                  <span class="at">강문가 — 30년 전통. TV 서민갑부. 활어회+홍게찜+물회 세트. 100명 수용 <span class="tag">추천</span> <a class="map-link" href="https://map.naver.com/p/search/%EA%B0%95%EB%AC%B8%EA%B0%80%20%EA%B0%95%EB%A6%89" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
                 </button>
-                <button class="alt-btn" data-k="dinner-a" data-v="meatculture" onclick="selAlt(this)">
-                  <span class="at">미트컬쳐 — 강릉 유럽식 스테이크. 참나무 비장탄 직화. 양갈비·티라미수 유명 <a class="map-link" href="https://map.naver.com/p/search/%EB%AF%B8%ED%8A%B8%EC%BB%AC%EC%B3%90%20%EA%B0%95%EB%A6%89" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                <button class="alt-btn" data-k="a-dinner1" data-v="hoecenter" onclick="selAlt(this)">
+                  <span class="at">강릉항회센터 — 1층 즉석 회 포장 + 2층 상차림. 광어·우럭 모둠 <a class="map-link" href="https://map.naver.com/p/search/%EA%B0%95%EB%A6%89%ED%95%AD%ED%9A%8C%EC%84%BC%ED%84%B0" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
                 </button>
-                <button class="alt-btn" data-k="dinner-a" data-v="hoecenter" onclick="selAlt(this)">
-                  <span class="at">강릉항회센터 — 1층 즉석 회 포장 + 2층 상차림. 광어·우럭·방어 모둠회 <a class="map-link" href="https://map.naver.com/p/search/%EA%B0%95%EB%A6%89%ED%95%AD%ED%9A%8C%EC%84%BC%ED%84%B0" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                <button class="alt-btn" data-k="a-dinner1" data-v="jumunjin" onclick="selAlt(this)">
+                  <span class="at">주문진항 회 — 어선 입출항 잦은 항구. 가장 신선한 회 <a class="map-link" href="https://map.naver.com/p/search/%EC%A3%BC%EB%AC%B8%EC%A7%84%ED%95%AD%20%ED%9A%8C%EC%84%BC%ED%84%B0" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
                 </button>
               </div>
             </div>
           </div>
         </div>
-
         <div class="stop">
           <div class="st"><span class="t">21:30</span><div class="dot"></div></div>
           <div class="sc">
-            <div class="sname">🏨 호텔 체크인 + 야간</div>
-            <div class="sadr">안목해변·경포해변 인근 호텔</div>
-            <div class="sdesc">강릉의 진짜 호사는 오션뷰 호텔에서 자는 것. 침대에서 파도소리 들으며 잠드는 경험.</div>
-            <div class="stip">금요일 직전이라 평일 요금 적용. 디럭스 오션뷰 이상 추천</div>
-            <div class="alts">
-              <span class="alts-lbl">골라줘</span>
-              <div class="alt-list" id="alt-hotel-a-may29">
-                <button class="alt-btn" data-k="hotel-a" data-v="monogram" onclick="selAlt(this)">
-                  <span class="at">신라모노그램 강릉 — 안목해변 신축(2024). 신라호텔 라이프스타일 브랜드. 디럭스 오션뷰 <span class="tag">추천</span> <a class="map-link" href="https://map.naver.com/p/search/%EC%8B%A0%EB%9D%BC%EB%AA%A8%EB%85%B8%EA%B7%B8%EB%9E%A8%20%EA%B0%95%EB%A6%89" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
-                </button>
-                <button class="alt-btn" data-k="hotel-a" data-v="skybay" onclick="selAlt(this)">
-                  <span class="at">스카이베이 호텔 경포 — 경포해변 + 경포호 뷰. 인피니티풀. 스카이라운지 <a class="map-link" href="https://map.naver.com/p/search/%EC%8A%A4%EC%B9%B4%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%ED%98%B8%ED%85%94%20%EA%B2%BD%ED%8F%AC" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
-                </button>
-                <button class="alt-btn" data-k="hotel-a" data-v="stjohns" onclick="selAlt(this)">
-                  <span class="at">세인트존스 호텔 — 강문해변 도보권. 가성비 오션뷰. 인피니티풀 인기 <a class="map-link" href="https://map.naver.com/p/search/%EC%84%B8%EC%9D%B8%ED%8A%B8%EC%A1%B4%EC%8A%A4%20%ED%98%B8%ED%85%94%20%EA%B0%95%EB%A6%89" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
-                </button>
-              </div>
-            </div>
+            <div class="sname">🏨 신라모노그램 강릉 체크인</div>
+            <div class="sadr">강릉시 해안로 186 (안목해변)</div>
+            <div class="sdesc">2024년 신축 오픈. 신라호텔 라이프스타일 브랜드. 안목해변 도보권. 디럭스 오션뷰 권장.</div>
+            <div class="stip">수영장·다이닝M 운영. 평일 요금 적용. 미리 예약 필수</div>
           </div>
         </div>
-
         <div class="stop">
           <div class="st"><span class="t">22:30</span><div class="dot"></div></div>
           <div class="sc">
             <div class="sname">🌙 야간 마무리</div>
             <div class="alts">
               <span class="alts-lbl">골라줘</span>
-              <div class="alt-list" id="alt-night-a-may29">
-                <button class="alt-btn" data-k="night-a" data-v="beach" onclick="selAlt(this)">
-                  <span class="at">해변 산책 + 편의점 맥주 — 호텔 앞 바다. 파도 소리 들으며 대화 <span class="tag">추천</span> <a class="map-link" href="https://map.naver.com/p/search/%EC%95%88%EB%AA%A9%ED%95%B4%EB%B3%80" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+              <div class="alt-list" id="alt-a-night1-may29">
+                <button class="alt-btn" data-k="a-night1" data-v="beach" onclick="selAlt(this)">
+                  <span class="at">안목해변 산책 + 편의점 맥주 — 호텔 앞 바다. 파도 소리 ASMR <span class="tag">추천</span> <a class="map-link" href="https://map.naver.com/p/search/%EC%95%88%EB%AA%A9%ED%95%B4%EB%B3%80" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
                 </button>
-                <button class="alt-btn" data-k="night-a" data-v="roomdrink" onclick="selAlt(this)">
-                  <span class="at">룸에서 와인 한 잔 — 강릉 와인샵 들러서 한 병 사고 호텔에서 야경뷰 <a class="map-link" href="https://map.naver.com/p/search/%EA%B0%95%EB%A6%89%20%EC%99%80%EC%9D%B8%EC%83%B5" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                <button class="alt-btn" data-k="a-night1" data-v="roomwine" onclick="selAlt(this)">
+                  <span class="at">룸에서 와인 한 잔 — 오션뷰 룸에서 야경 <a class="map-link" href="https://map.naver.com/p/search/%EA%B0%95%EB%A6%89%20%EC%99%80%EC%9D%B8%EC%83%B5" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
                 </button>
-                <button class="alt-btn" data-k="night-a" data-v="sleep" onclick="selAlt(this)">
-                  <span class="at">일찍 자기 — 내일 일출/조식 위해 컨디션 챙기기 😴</span>
+                <button class="alt-btn" data-k="a-night1" data-v="sleep" onclick="selAlt(this)">
+                  <span class="at">일찍 자기 — 내일 위해 컨디션 챙기기 😴</span>
                 </button>
               </div>
             </div>
           </div>
         </div>
 
+        <div style="margin:32px 0 24px;padding:16px;background:rgba(196,122,94,0.08);border-radius:12px;text-align:center">
+          <span style="font-size:11px;letter-spacing:3px;color:var(--rose);font-weight:500">DAY 2 · 5/30 토</span>
+        </div>
+        <div class="stop">
+          <div class="st"><span class="t">06:00</span><div class="dot"></div></div>
+          <div class="sc">
+            <div class="sname">🌅 일출 (선택)</div>
+            <div class="sdesc">5월 30일 강릉 일출 약 05:14. 호텔 발코니에서 그대로 보거나 안목해변 산책.</div>
+            <div class="stip">안 깨면 패스. 호텔 조식 시간 맞추기</div>
+          </div>
+        </div>
+        <div class="stop">
+          <div class="st"><span class="t">09:00</span><div class="dot"></div></div>
+          <div class="sc">
+            <div class="sname">🍳 조식</div>
+            <div class="alts">
+              <span class="alts-lbl">골라줘</span>
+              <div class="alt-list" id="alt-a-breakfast2-may29">
+                <button class="alt-btn" data-k="a-breakfast2" data-v="hotel" onclick="selAlt(this)">
+                  <span class="at">다이닝M (신라모노그램 조식) — 호텔 뷔페. 편하고 맛있음 <span class="tag">추천</span> <a class="map-link" href="https://map.naver.com/p/search/%EC%8B%A0%EB%9D%BC%EB%AA%A8%EB%85%B8%EA%B7%B8%EB%9E%A8%20%EA%B0%95%EB%A6%89%20%EB%8B%A4%EC%9D%B4%EB%8B%9D" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                </button>
+                <button class="alt-btn" data-k="a-breakfast2" data-v="brunch" onclick="selAlt(this)">
+                  <span class="at">안목 브런치 카페 — 키크러스·로지커피 브런치 메뉴 <a class="map-link" href="https://map.naver.com/p/search/%EA%B0%95%EB%A6%89%20%EB%B8%8C%EB%9F%B0%EC%B9%98%20%EC%B9%B4%ED%8E%98" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="stop">
+          <div class="st"><span class="t">11:00</span><div class="dot"></div></div>
+          <div class="sc">
+            <div class="sname">🎨 아르떼뮤지엄 강릉</div>
+            <div class="sadr">강릉시 난설헌로 131</div>
+            <div class="sdesc">몰입형 미디어아트 전시. 날씨 무관·사진 핫플. 1시간 30분 정도 관람 권장.</div>
+            <div class="stip">티켓 예매 권장. 평일 오전이라 한산</div>
+          </div>
+        </div>
+        <div class="stop">
+          <div class="st"><span class="t">13:00</span><div class="dot"></div></div>
+          <div class="sc">
+            <div class="sname">🍲 점심 (초당두부)</div>
+            <div class="sadr">초당두부마을 일대</div>
+            <div class="sdesc">강릉 시그니처 초당순두부. 가성비 + 강릉다움.</div>
+            <div class="alts">
+              <span class="alts-lbl">골라줘</span>
+              <div class="alt-list" id="alt-a-lunch2-may29">
+                <button class="alt-btn" data-k="a-lunch2" data-v="todam" onclick="selAlt(this)">
+                  <span class="at">토담순두부 — 초당두부마을 노포. 정갈한 순두부 정식 <span class="tag">추천</span> <a class="map-link" href="https://map.naver.com/p/search/%ED%86%A0%EB%8B%B4%EC%88%9C%EB%91%90%EB%B6%80%20%EC%B4%88%EB%8B%B9" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                </button>
+                <button class="alt-btn" data-k="a-lunch2" data-v="choho" onclick="selAlt(this)">
+                  <span class="at">초당홀 — 깔끔한 인테리어. 짬뽕순두부도 있음 <a class="map-link" href="https://map.naver.com/p/search/%EC%B4%88%EB%8B%B9%ED%99%80%20%EA%B0%95%EB%A6%89" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                </button>
+                <button class="alt-btn" data-k="a-lunch2" data-v="haseul" onclick="selAlt(this)">
+                  <span class="at">하슬라 — 두부전골·청국장 <a class="map-link" href="https://map.naver.com/p/search/%ED%95%98%EC%8A%AC%EB%9D%BC%20%EC%B4%88%EB%8B%B9%EB%91%90%EB%B6%80" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="stop">
+          <div class="st"><span class="t">15:00</span><div class="dot"></div></div>
+          <div class="sc">
+            <div class="sname">☕ 테라로사 본점</div>
+            <div class="sadr">강릉시 구정면 (남강릉IC 옆)</div>
+            <div class="sdesc">강릉 커피 1세대 김용덕 매장. 커피뮤지엄+레스토랑+아트숍. 서울 복귀 동선에 자연스러움.</div>
+            <div class="stip">주말 오후라 웨이팅 가능. 차로 이동</div>
+          </div>
+        </div>
+        <div class="stop">
+          <div class="st"><span class="t">17:30</span><div class="dot"></div></div>
+          <div class="sc">
+            <div class="sname">🍽️ 미트컬쳐 저녁</div>
+            <div class="sadr">강릉시 경강로 2629</div>
+            <div class="sdesc">흑백요리사 셰프 운영. 가스트로펍 스타일. 피쉬앤칩스·스테이크·티라미수. 캐치테이블 예약.</div>
+            <div class="stip">화요일·수요일 휴무. 토요일은 정상 영업</div>
+          </div>
+        </div>
+        <div class="stop">
+          <div class="st"><span class="t">19:00</span><div class="dot"></div></div>
+          <div class="sc">
+            <div class="sname">🚗 서울 출발</div>
+            <div class="sdesc">남강릉IC → 영동고속도로 → 약 3시간 후 서울 도착.</div>
+          </div>
+        </div>
+        <div class="stop">
+          <div class="st"><span class="t">22:00</span><div class="dot"></div></div>
+          <div class="sc">
+            <div class="sname">🏠 교대역 도착</div>
+            <div class="sdesc">진경이 교대역 도착. 토요일 밤 10시 도착. 1박 2일 강릉 끝.</div>
+          </div>
+        </div>
+
       </div>
       <div class="pick-wrap">
-        <p class="pick-msg">Day 1 코스 어때?</p>
-        <button class="pick-btn" id="pk-a-may29" onclick="pickPlan('may29','a')"><span>Day 1 좋아!</span></button>
+        <p class="pick-msg">이 코스 어때? 마음에 들면 눌러줘</p>
+        <button class="pick-btn" id="pk-a-may29" onclick="pickPlan('may29','a')"><span>Plan A 좋아!</span></button>
         <div class="pick-other" id="po-a-may29"></div>
       </div>
-      <div class="divider"><span>Day 1 대화</span></div>
+      <div class="divider"><span>대화</span></div>
       <div class="clist" id="cl-a-may29"></div>
       <div class="cinput-wrap">
-        <textarea class="cinput" id="ci-a-may29" placeholder="Day 1 코멘트..." rows="1"
+        <textarea class="cinput" id="ci-a-may29" placeholder="코멘트 남기기..." rows="1"
           oninput="autoH(this)" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendC('may29','a')}"></textarea>
         <button class="csend" onclick="sendC('may29','a')"><svg viewBox="0 0 24 24"><path d="M2 21L23 12 2 3v7l15 2-15 2z"/></svg></button>
       </div>
     </div>
 
-    <!-- ══ DAY 2 (5월 30일 금요일) ══ -->
+    <!-- ══ PLAN B ══ -->
     <div class="panel" id="pb-may29">
       <div class="ph">
-        <span class="ptag">Day 2</span>
-        <h2 class="ptitle">5월 30일 토<br><em>강릉 마지막 한 컷</em></h2>
-        <p class="pmood">호텔 조식 → 강릉 핫플 → 점심 → 카페 → 저녁까지 풀로 즐기고 → 19시 출발 → 22시 교대 도착.</p>
+        <span class="ptag">Plan B</span>
+        <h2 class="ptitle">경포·전통<br><em>호수와 한우</em></h2>
+        <p class="pmood">경포대 호수 + 한우 + 스카이베이 호텔. 강원도 정통 문화·자연 코스. 고기 좋아하면 여기.</p>
       </div>
       <div class="tl">
+        <div style="margin:0 0 24px;padding:16px;background:rgba(196,122,94,0.08);border-radius:12px;text-align:center">
+          <span style="font-size:11px;letter-spacing:3px;color:var(--rose);font-weight:500">DAY 1 · 5/29 금</span>
+        </div>
+        <div class="stop">
+          <div class="st"><span class="t">12:00</span><div class="dot"></div></div>
+          <div class="sc">
+            <div class="sname">🚗 교대역 픽업 출발</div>
+            <div class="sdesc">금요일 점심 진경이 교대역 픽업 → 영동고속도로. 강릉까지 약 3시간.</div>
+          </div>
+        </div>
+        <div class="stop">
+          <div class="st"><span class="t">15:30</span><div class="dot"></div></div>
+          <div class="sc">
+            <div class="sname">🍜 강릉 도착 → 늦은 점심</div>
+            <div class="sadr">강릉 시내 막국수·옹심이</div>
+            <div class="sdesc">메밀 강원도의 정통 막국수 or 감자옹심. 강릉 향토 음식.</div>
+            <div class="alts">
+              <span class="alts-lbl">골라줘</span>
+              <div class="alt-list" id="alt-b-lunch1-may29">
+                <button class="alt-btn" data-k="b-lunch1" data-v="donghae" onclick="selAlt(this)">
+                  <span class="at">동해막국수 강문본점 — 트립어드바이저 5.0점. 시원한 막국수 + 수육 <span class="tag">추천</span> <a class="map-link" href="https://map.naver.com/p/search/%EB%8F%99%ED%95%B4%EB%A7%89%EA%B5%AD%EC%88%98%20%EA%B0%95%EB%AC%B8%EB%B3%B8%EC%A0%90" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                </button>
+                <button class="alt-btn" data-k="b-lunch1" data-v="ongshim" onclick="selAlt(this)">
+                  <span class="at">강릉감자옹심 본점 — 강원도 감자옹심이 정통 <a class="map-link" href="https://map.naver.com/p/search/%EA%B0%95%EB%A6%89%EA%B0%90%EC%9E%90%EC%98%B9%EC%8B%AC%20%EB%B3%B8%EC%A0%90" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                </button>
+                <button class="alt-btn" data-k="b-lunch1" data-v="jang" onclick="selAlt(this)">
+                  <span class="at">장칼국수집 — 강릉 골목 장칼국수. 깊은 양념 <a class="map-link" href="https://map.naver.com/p/search/%EA%B0%95%EB%A6%89%20%EC%9E%A5%EC%B9%BC%EA%B5%AD%EC%88%98" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="stop">
+          <div class="st"><span class="t">17:00</span><div class="dot"></div></div>
+          <div class="sc">
+            <div class="sname">🌊 경포해변 산책</div>
+            <div class="sadr">경포해변 (스카이베이 호텔 근처)</div>
+            <div class="sdesc">경포대 모래사장 산책 + 경포호 둘레길. 솔밭 산책로 운치 있음.</div>
+            <div class="stip">일몰 19:30 전후. 호수에 비치는 노을이 특히 예쁨</div>
+          </div>
+        </div>
+        <div class="stop">
+          <div class="st"><span class="t">19:30</span><div class="dot"></div></div>
+          <div class="sc">
+            <div class="sname">🥩 강릉 한우 저녁</div>
+            <div class="sadr">강릉 시내 한우집</div>
+            <div class="sdesc">강원도 한우 정수. 1++ 등급 위주 정육식당에서 직접 굽기.</div>
+            <div class="alts">
+              <span class="alts-lbl">골라줘</span>
+              <div class="alt-list" id="alt-b-dinner1-may29">
+                <button class="alt-btn" data-k="b-dinner1" data-v="ojikhanwoo" onclick="selAlt(this)">
+                  <span class="at">오직한우 강릉본점 — 1++ 한우만. 강릉 현지인 추천 <span class="tag">추천</span> <a class="map-link" href="https://map.naver.com/p/search/%EC%98%A4%EC%A7%81%ED%95%9C%EC%9A%B0%20%EA%B0%95%EB%A6%89%EB%B3%B8%EC%A0%90" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                </button>
+                <button class="alt-btn" data-k="b-dinner1" data-v="geumsongaji" onclick="selAlt(this)">
+                  <span class="at">금송아지 — 다이닝코드 ★4.7. 강릉 한우 빅데이터 추천 1위 <a class="map-link" href="https://map.naver.com/p/search/%EA%B8%88%EC%86%A1%EC%95%84%EC%A7%80%20%EA%B0%95%EB%A6%89" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                </button>
+                <button class="alt-btn" data-k="b-dinner1" data-v="hakmaeul" onclick="selAlt(this)">
+                  <span class="at">학마을한우 — ★4.8. 깔끔한 분위기 <a class="map-link" href="https://map.naver.com/p/search/%ED%95%99%EB%A7%88%EC%9D%84%ED%95%9C%EC%9A%B0%20%EA%B0%95%EB%A6%89" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="stop">
+          <div class="st"><span class="t">21:30</span><div class="dot"></div></div>
+          <div class="sc">
+            <div class="sname">🏨 스카이베이 호텔 경포 체크인</div>
+            <div class="sadr">경포해변 + 경포호 더블뷰</div>
+            <div class="sdesc">경포해변 정면. 인피니티풀 + 스카이라운지. 경포호+동해 양쪽 뷰 가능.</div>
+            <div class="stip">평일 요금 적용. 오션뷰/리버뷰 객실 권장</div>
+          </div>
+        </div>
+        <div class="stop">
+          <div class="st"><span class="t">22:30</span><div class="dot"></div></div>
+          <div class="sc">
+            <div class="sname">🌙 야간 마무리</div>
+            <div class="alts">
+              <span class="alts-lbl">골라줘</span>
+              <div class="alt-list" id="alt-b-night1-may29">
+                <button class="alt-btn" data-k="b-night1" data-v="gyeongpoho" onclick="selAlt(this)">
+                  <span class="at">경포호 야간 산책 — 호수 둘레 4km. 가로등 운치 <span class="tag">추천</span> <a class="map-link" href="https://map.naver.com/p/search/%EA%B2%BD%ED%8F%AC%ED%98%B8" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                </button>
+                <button class="alt-btn" data-k="b-night1" data-v="skylounge" onclick="selAlt(this)">
+                  <span class="at">스카이라운지 — 호텔 내 라운지에서 한 잔 <a class="map-link" href="https://map.naver.com/p/search/%EC%8A%A4%EC%B9%B4%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%ED%98%B8%ED%85%94%20%EA%B2%BD%ED%8F%AC" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                </button>
+                <button class="alt-btn" data-k="b-night1" data-v="sleep" onclick="selAlt(this)">
+                  <span class="at">호텔에서 일찍 쉬기 😴</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
 
+        <div style="margin:32px 0 24px;padding:16px;background:rgba(196,122,94,0.08);border-radius:12px;text-align:center">
+          <span style="font-size:11px;letter-spacing:3px;color:var(--rose);font-weight:500">DAY 2 · 5/30 토</span>
+        </div>
         <div class="stop">
           <div class="st"><span class="t">06:00</span><div class="dot"></div></div>
           <div class="sc">
             <div class="sname">🌅 일출 (선택)</div>
-            <div class="sdesc">5월 30일 강릉 일출 약 05:15. 깨고 싶으면 호텔 발코니/해변에서 일출. 안 깨면 그냥 패스.</div>
-            <div class="stip">강릉 일출 명소: 정동진 (택시 30분) / 안목해변 (호텔 앞)</div>
+            <div class="sdesc">경포해변 일출 05:14. 호텔 객실 통창에서 그대로 볼 수 있음.</div>
+            <div class="stip">안 깨면 패스. 조식 시간 맞추기</div>
           </div>
         </div>
-
         <div class="stop">
           <div class="st"><span class="t">09:00</span><div class="dot"></div></div>
           <div class="sc">
-            <div class="sname">🍳 조식</div>
-            <div class="sadr">호텔 조식 or 외부 브런치</div>
-            <div class="sdesc">호텔 조식 vs 강릉 외부 브런치 카페. 시간 여유 있으면 외부도 좋음.</div>
+            <div class="sname">🍳 호텔 조식</div>
+            <div class="sdesc">스카이베이 조식 또는 외부 브런치.</div>
             <div class="alts">
               <span class="alts-lbl">골라줘</span>
-              <div class="alt-list" id="alt-breakfast-b-may29">
-                <button class="alt-btn" data-k="breakfast-b" data-v="hotel" onclick="selAlt(this)">
-                  <span class="at">호텔 조식 — 다이닝M(신라모노그램)·뷔페·룸서비스. 편하게 <span class="tag">추천</span> <a class="map-link" href="https://map.naver.com/p/search/%EC%8B%A0%EB%9D%BC%EB%AA%A8%EB%85%B8%EA%B7%B8%EB%9E%A8%20%EA%B0%95%EB%A6%89%20%EB%8B%A4%EC%9D%B4%EB%8B%9D" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+              <div class="alt-list" id="alt-b-breakfast2-may29">
+                <button class="alt-btn" data-k="b-breakfast2" data-v="hotel" onclick="selAlt(this)">
+                  <span class="at">스카이베이 조식 — 호텔 뷔페 <span class="tag">추천</span> <a class="map-link" href="https://map.naver.com/p/search/%EC%8A%A4%EC%B9%B4%EC%9D%B4%EB%B2%A0%EC%9D%B4%20%ED%98%B8%ED%85%94%20%EA%B2%BD%ED%8F%AC%20%EC%A1%B0%EC%8B%9D" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
                 </button>
-                <button class="alt-btn" data-k="breakfast-b" data-v="brunch" onclick="selAlt(this)">
-                  <span class="at">강릉 브런치 카페 — 키크러스·로지커피 등 안목 일대. 천천히 <a class="map-link" href="https://map.naver.com/p/search/%EA%B0%95%EB%A6%89%20%EB%B8%8C%EB%9F%B0%EC%B9%98%20%EC%B9%B4%ED%8E%98" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
-                </button>
-                <button class="alt-btn" data-k="breakfast-b" data-v="skip" onclick="selAlt(this)">
-                  <span class="at">아점으로 합쳐서 가기 — 늦게 일어났으면 점심+조식 합치기</span>
+                <button class="alt-btn" data-k="b-breakfast2" data-v="cafe" onclick="selAlt(this)">
+                  <span class="at">경포 브런치 카페 — 외부 외출 <a class="map-link" href="https://map.naver.com/p/search/%EA%B2%BD%ED%8F%AC%20%EB%B8%8C%EB%9F%B0%EC%B9%98%20%EC%B9%B4%ED%8E%98" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
                 </button>
               </div>
             </div>
           </div>
         </div>
-
         <div class="stop">
           <div class="st"><span class="t">11:00</span><div class="dot"></div></div>
           <div class="sc">
-            <div class="sname">🎨 강릉 핫플 코스</div>
-            <div class="sadr">강릉시 일대</div>
-            <div class="sdesc">체크아웃 후 강릉 가볼만한 곳. 미디어아트·자연·바다 중 하나 고르기.</div>
-            <div class="alts">
-              <span class="alts-lbl">골라줘</span>
-              <div class="alt-list" id="alt-spot-b-may29">
-                <button class="alt-btn" data-k="spot-b" data-v="arte" onclick="selAlt(this)">
-                  <span class="at">아르떼뮤지엄 강릉 — 몰입형 미디어아트 전시. 날씨 무관·사진 핫플 <span class="tag">추천</span> <a class="map-link" href="https://map.naver.com/p/search/%EC%95%84%EB%A5%B4%EB%96%BC%EB%AE%A4%EC%A7%80%EC%97%84%20%EA%B0%95%EB%A6%89" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
-                </button>
-                <button class="alt-btn" data-k="spot-b" data-v="gyeongpo" onclick="selAlt(this)">
-                  <span class="at">경포대 + 경포호 산책 — 강릉 대표 명소. 호숫가 산책로·벚꽃 명소 <a class="map-link" href="https://map.naver.com/p/search/%EA%B2%BD%ED%8F%AC%EB%8C%80%20%EA%B0%95%EB%A6%89" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
-                </button>
-                <button class="alt-btn" data-k="spot-b" data-v="jeongdongjin" onclick="selAlt(this)">
-                  <span class="at">정동진 — 바다 위 기차역. 모래시계공원. 서울 복귀 길에 들르기 좋음 <a class="map-link" href="https://map.naver.com/p/search/%EC%A0%95%EB%8F%99%EC%A7%84%20%EA%B0%95%EB%A6%89" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
-                </button>
-              </div>
-            </div>
+            <div class="sname">🏛️ 경포대 + 오죽헌</div>
+            <div class="sadr">경포대 + 오죽헌 강릉시</div>
+            <div class="sdesc">경포대 한국 정자 전통 명소. 오죽헌은 신사임당·율곡 이이 생가. 한국 전통 문화 체험.</div>
+            <div class="stip">경포대 → 오죽헌 차로 5분</div>
           </div>
         </div>
-
         <div class="stop">
           <div class="st"><span class="t">13:00</span><div class="dot"></div></div>
           <div class="sc">
-            <div class="sname">🍲 점심 (강릉 별미)</div>
-            <div class="sadr">초당두부마을 or 시내</div>
-            <div class="sdesc">강릉 와서 초당순두부는 한 번. 마지막 점심으로 강릉다운 한 끼.</div>
+            <div class="sname">🍲 점심</div>
             <div class="alts">
               <span class="alts-lbl">골라줘</span>
-              <div class="alt-list" id="alt-lunch-b-may29">
-                <button class="alt-btn" data-k="lunch-b" data-v="chodang" onclick="selAlt(this)">
-                  <span class="at">초당두부마을 — 강릉 대표 순두부 마을. 토담·초당홀 등 노포 다수 <span class="tag">추천</span> <a class="map-link" href="https://map.naver.com/p/search/%EC%B4%88%EB%8B%B9%EB%91%90%EB%B6%80%EB%A7%88%EC%9D%84%20%EA%B0%95%EB%A6%89" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+              <div class="alt-list" id="alt-b-lunch2-may29">
+                <button class="alt-btn" data-k="b-lunch2" data-v="todam" onclick="selAlt(this)">
+                  <span class="at">토담순두부 — 초당두부마을 정통 순두부정식 <span class="tag">추천</span> <a class="map-link" href="https://map.naver.com/p/search/%ED%86%A0%EB%8B%B4%EC%88%9C%EB%91%90%EB%B6%80%20%EC%B4%88%EB%8B%B9" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
                 </button>
-                <button class="alt-btn" data-k="lunch-b" data-v="donghae2" onclick="selAlt(this)">
-                  <span class="at">동해막국수 — 트립어드바이저 5.0점. 시원한 막국수 + 수육 <a class="map-link" href="https://map.naver.com/p/search/%EB%8F%99%ED%95%B4%EB%A7%89%EA%B5%AD%EC%88%98%20%EA%B0%95%EB%AC%B8%EB%B3%B8%EC%A0%90" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                <button class="alt-btn" data-k="b-lunch2" data-v="jjamppong" onclick="selAlt(this)">
+                  <span class="at">강릉짬뽕순두부 — 강릉 시그니처. 안 가봤다면 한 번 <a class="map-link" href="https://map.naver.com/p/search/%EA%B0%95%EB%A6%89%EC%A7%AC%EB%BD%95%EC%88%9C%EB%91%90%EB%B6%80" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
                 </button>
-                <button class="alt-btn" data-k="lunch-b" data-v="fusion" onclick="selAlt(this)">
-                  <span class="at">강릉 시내 양식·브런치 — 미트컬쳐 점심 메뉴 등 다양 <a class="map-link" href="https://map.naver.com/p/search/%EA%B0%95%EB%A6%89%20%EC%8B%9C%EB%82%B4%20%EC%96%91%EC%8B%9D%20%EB%A7%9B%EC%A7%91" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                <button class="alt-btn" data-k="b-lunch2" data-v="samgyetang" onclick="selAlt(this)">
+                  <span class="at">강릉 삼계탕 — 보양식. 운전 전 든든하게 <a class="map-link" href="https://map.naver.com/p/search/%EA%B0%95%EB%A6%89%20%EC%82%BC%EA%B3%84%ED%83%95%20%EB%A7%9B%EC%A7%91" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
                 </button>
               </div>
             </div>
           </div>
         </div>
-
         <div class="stop">
           <div class="st"><span class="t">15:00</span><div class="dot"></div></div>
           <div class="sc">
-            <div class="sname">☕ 오후 카페 + 빵</div>
-            <div class="sadr">테라로사 본점 or 명주동</div>
-            <div class="sdesc">밤까지 강릉에 있을 거라 여유롭게 커피 한 잔. 빵·디저트도.</div>
+            <div class="sname">☕ 명주동 골목 카페</div>
+            <div class="sadr">강릉 명주동 (구도심)</div>
+            <div class="sdesc">강릉 구도심 골목길 카페들. 봉봉방앗간 같은 노포 개조 카페가 강릉 감성.</div>
             <div class="alts">
               <span class="alts-lbl">골라줘</span>
-              <div class="alt-list" id="alt-cafe-b-may29">
-                <button class="alt-btn" data-k="cafe-b" data-v="terarosa" onclick="selAlt(this)">
-                  <span class="at">테라로사 커피공장 본점 — 강릉 커피 1세대 김용덕 매장. 커피뮤지엄+레스토랑+아트숍 <span class="tag">추천</span> <a class="map-link" href="https://map.naver.com/p/search/%ED%85%8C%EB%9D%BC%EB%A1%9C%EC%82%AC%20%EC%BB%A4%ED%94%BC%EA%B3%B5%EC%9E%A5%20%EA%B0%95%EB%A6%89%EB%B3%B8%EC%A0%90" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+              <div class="alt-list" id="alt-b-cafe2-may29">
+                <button class="alt-btn" data-k="b-cafe2" data-v="bongbong" onclick="selAlt(this)">
+                  <span class="at">봉봉방앗간 — 명주동 오래된 방앗간 개조. 강릉 골목 감성 <span class="tag">추천</span> <a class="map-link" href="https://map.naver.com/p/search/%EB%B4%89%EB%B4%89%EB%B0%A9%EC%95%97%EA%B0%84%20%EA%B0%95%EB%A6%89" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
                 </button>
-                <button class="alt-btn" data-k="cafe-b" data-v="bongbong" onclick="selAlt(this)">
-                  <span class="at">봉봉방앗간 — 명주동 오래된 방앗간 개조 카페. 골목 감성 <a class="map-link" href="https://map.naver.com/p/search/%EB%B4%89%EB%B4%89%EB%B0%A9%EC%95%97%EA%B0%84%20%EA%B0%95%EB%A6%89" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                <button class="alt-btn" data-k="b-cafe2" data-v="terarosa" onclick="selAlt(this)">
+                  <span class="at">테라로사 본점 — 강릉 커피 1세대. 커피뮤지엄 <a class="map-link" href="https://map.naver.com/p/search/%ED%85%8C%EB%9D%BC%EB%A1%9C%EC%82%AC%20%EC%BB%A4%ED%94%BC%EA%B3%B5%EC%9E%A5%20%EA%B0%95%EB%A6%89%EB%B3%B8%EC%A0%90" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
                 </button>
-                <button class="alt-btn" data-k="cafe-b" data-v="sand" onclick="selAlt(this)">
-                  <span class="at">강릉샌드 — 중앙시장 인근. 버터 풍미 샌드. 기념품용 포장 <a class="map-link" href="https://map.naver.com/p/search/%EA%B0%95%EB%A6%89%EC%83%8C%EB%93%9C%20%EC%A4%91%EC%95%99%EC%8B%9C%EC%9E%A5" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                <button class="alt-btn" data-k="b-cafe2" data-v="gangsand" onclick="selAlt(this)">
+                  <span class="at">강릉샌드 — 중앙시장. 버터 풍미 기념품 <a class="map-link" href="https://map.naver.com/p/search/%EA%B0%95%EB%A6%89%EC%83%8C%EB%93%9C%20%EC%A4%91%EC%95%99%EC%8B%9C%EC%9E%A5" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
                 </button>
               </div>
             </div>
           </div>
         </div>
-
         <div class="stop">
           <div class="st"><span class="t">17:30</span><div class="dot"></div></div>
           <div class="sc">
-            <div class="sname">🍽️ 강릉 마지막 저녁</div>
-            <div class="sadr">강릉 시내 or 안목·강문 일대</div>
-            <div class="sdesc">서울 가기 전 마지막 한 끼. 첫날 회를 먹었다면 둘째 날은 다른 메뉴로 마무리.</div>
-            <div class="stip">출발 전 한 시간 반 정도 여유. 가볍게 먹어도 OK</div>
+            <div class="sname">🍽️ 마지막 저녁</div>
+            <div class="sdesc">서울 가기 전 마지막 한 끼.</div>
             <div class="alts">
               <span class="alts-lbl">골라줘</span>
-              <div class="alt-list" id="alt-dinner-b-may29">
-                <button class="alt-btn" data-k="dinner-b" data-v="bbq" onclick="selAlt(this)">
-                  <span class="at">강릉 한우 — 안목·교동 일대 한우집. 첫날 해산물 다음 둘째 날 고기 정석 <span class="tag">추천</span> <a class="map-link" href="https://map.naver.com/p/search/%EA%B0%95%EB%A6%89%20%ED%95%9C%EC%9A%B0%EB%A7%9B%EC%A7%91" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+              <div class="alt-list" id="alt-b-dinner2-may29">
+                <button class="alt-btn" data-k="b-dinner2" data-v="gukbap" onclick="selAlt(this)">
+                  <span class="at">강릉 국밥/곰탕 — 운전 전 든든 <span class="tag">추천</span> <a class="map-link" href="https://map.naver.com/p/search/%EA%B0%95%EB%A6%89%20%EA%B3%B0%ED%83%95%20%EB%A7%9B%EC%A7%91" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
                 </button>
-                <button class="alt-btn" data-k="dinner-b" data-v="gukbap" onclick="selAlt(this)">
-                  <span class="at">강릉 시내 국밥·곰탕 — 운전 전이라 든든하고 부담 없는 한 끼. 따끈한 국물 <a class="map-link" href="https://map.naver.com/p/search/%EA%B0%95%EB%A6%89%20%EA%B5%AD%EB%B0%A5%EB%A7%9B%EC%A7%91" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                <button class="alt-btn" data-k="b-dinner2" data-v="sundubu" onclick="selAlt(this)">
+                  <span class="at">순두부 정식 — 가볍고 속 편함 <a class="map-link" href="https://map.naver.com/p/search/%EC%B4%88%EB%8B%B9%EC%88%9C%EB%91%90%EB%B6%80%20%EB%A7%9B%EC%A7%91" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
                 </button>
-                <button class="alt-btn" data-k="dinner-b" data-v="light" onclick="selAlt(this)">
-                  <span class="at">카페에서 가볍게 — 점심 늦게 먹었으면 샌드위치·샐러드로 가볍게. 휴게소에서 보조</span>
+                <button class="alt-btn" data-k="b-dinner2" data-v="light" onclick="selAlt(this)">
+                  <span class="at">카페에서 가볍게 — 점심 늦었으면 샌드위치</span>
                 </button>
               </div>
             </div>
           </div>
         </div>
-
         <div class="stop">
           <div class="st"><span class="t">19:00</span><div class="dot"></div></div>
           <div class="sc">
             <div class="sname">🚗 서울 출발</div>
-            <div class="sdesc">남강릉IC → 영동고속도로 → 약 3시간 후 서울 도착. 토요일 저녁이라 일부 정체 가능.</div>
-            <div class="stip">평창휴게소·횡성휴게소에서 휴식. 운전 피로 시 진경이와 교대</div>
+            <div class="sdesc">남강릉IC → 영동고속도로 → 약 3시간.</div>
           </div>
         </div>
-
         <div class="stop">
           <div class="st"><span class="t">22:00</span><div class="dot"></div></div>
           <div class="sc">
             <div class="sname">🏠 교대역 도착</div>
-            <div class="sdesc">진경이 교대역에 내려주고 1박 2일 강릉 데이트 끝. 토요일 밤 10시쯤 도착 예상.</div>
-            <div class="stip">교통 상황 따라 21:30~23:00 사이 도착 가능</div>
+            <div class="sdesc">진경이 교대역에 내려주고 1박 2일 마무리.</div>
           </div>
         </div>
 
       </div>
       <div class="pick-wrap">
-        <p class="pick-msg">Day 2 코스 어때?</p>
-        <button class="pick-btn" id="pk-b-may29" onclick="pickPlan('may29','b')"><span>Day 2 좋아!</span></button>
+        <p class="pick-msg">이 코스 어때? 마음에 들면 눌러줘</p>
+        <button class="pick-btn" id="pk-b-may29" onclick="pickPlan('may29','b')"><span>Plan B 좋아!</span></button>
         <div class="pick-other" id="po-b-may29"></div>
       </div>
-      <div class="divider"><span>Day 2 대화</span></div>
+      <div class="divider"><span>대화</span></div>
       <div class="clist" id="cl-b-may29"></div>
       <div class="cinput-wrap">
-        <textarea class="cinput" id="ci-b-may29" placeholder="Day 2 코멘트..." rows="1"
+        <textarea class="cinput" id="ci-b-may29" placeholder="코멘트 남기기..." rows="1"
           oninput="autoH(this)" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendC('may29','b')}"></textarea>
         <button class="csend" onclick="sendC('may29','b')"><svg viewBox="0 0 24 24"><path d="M2 21L23 12 2 3v7l15 2-15 2z"/></svg></button>
+      </div>
+    </div>
+
+    <!-- ══ PLAN C ══ -->
+    <div class="panel" id="pc-may29">
+      <div class="ph">
+        <span class="ptag">Plan C</span>
+        <h2 class="ptitle">정동진·체험<br><em>미디어아트와 일출</em></h2>
+        <p class="pmood">아르떼뮤지엄 + 정동진 썬크루즈 + 바다부채길. 특별한 체험형 코스. 일출 보고 싶으면 여기.</p>
+      </div>
+      <div class="tl">
+        <div style="margin:0 0 24px;padding:16px;background:rgba(196,122,94,0.08);border-radius:12px;text-align:center">
+          <span style="font-size:11px;letter-spacing:3px;color:var(--rose);font-weight:500">DAY 1 · 5/29 금</span>
+        </div>
+        <div class="stop">
+          <div class="st"><span class="t">12:00</span><div class="dot"></div></div>
+          <div class="sc">
+            <div class="sname">🚗 교대역 픽업 출발</div>
+            <div class="sdesc">교대역 픽업 → 강릉 → 정동진까지 이어지는 코스.</div>
+            <div class="stip">강릉에서 정동진까지 차로 30분 추가. 일찍 출발 권장</div>
+          </div>
+        </div>
+        <div class="stop">
+          <div class="st"><span class="t">15:30</span><div class="dot"></div></div>
+          <div class="sc">
+            <div class="sname">🎨 아르떼뮤지엄 강릉</div>
+            <div class="sadr">강릉시 난설헌로 131</div>
+            <div class="sdesc">몰입형 미디어아트 전시. 도착 후 첫 코스로 강릉 분위기 잡기. 사진 핫플.</div>
+            <div class="stip">티켓 예매 권장. 약 1시간 30분 관람</div>
+          </div>
+        </div>
+        <div class="stop">
+          <div class="st"><span class="t">17:30</span><div class="dot"></div></div>
+          <div class="sc">
+            <div class="sname">☕ 안목해변 가는 길 카페</div>
+            <div class="sadr">안목해변 커피거리</div>
+            <div class="sdesc">정동진 가기 전 안목해변에서 노을 + 커피. 짧게 들르기.</div>
+            <div class="alts">
+              <span class="alts-lbl">골라줘</span>
+              <div class="alt-list" id="alt-c-cafe1-may29">
+                <button class="alt-btn" data-k="c-cafe1" data-v="bossanova" onclick="selAlt(this)">
+                  <span class="at">보사노바 — 루프탑에서 노을 <span class="tag">추천</span> <a class="map-link" href="https://map.naver.com/p/search/%EB%B3%B4%EC%82%AC%EB%85%B8%EB%B0%94%EC%BB%A4%ED%94%BC%EB%A1%9C%EC%8A%A4%ED%84%B0%EC%8A%A4%20%EA%B0%95%EB%A6%89" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                </button>
+                <button class="alt-btn" data-k="c-cafe1" data-v="santorini" onclick="selAlt(this)">
+                  <span class="at">산토리니커피 — 그리스 감성 <a class="map-link" href="https://map.naver.com/p/search/%EC%82%B0%ED%86%A0%EB%A6%AC%EB%8B%88%EC%BB%A4%ED%94%BC%20%EA%B0%95%EB%A6%89" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                </button>
+                <button class="alt-btn" data-k="c-cafe1" data-v="skip" onclick="selAlt(this)">
+                  <span class="at">스킵 → 바로 정동진으로</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="stop">
+          <div class="st"><span class="t">19:00</span><div class="dot"></div></div>
+          <div class="sc">
+            <div class="sname">🦞 강릉 저녁 (정동진 가는 길)</div>
+            <div class="sadr">강릉 안목·강문 인근</div>
+            <div class="sdesc">정동진 가기 전 강릉에서 저녁. 정동진은 식당 옵션이 적음.</div>
+            <div class="alts">
+              <span class="alts-lbl">골라줘</span>
+              <div class="alt-list" id="alt-c-dinner1-may29">
+                <button class="alt-btn" data-k="c-dinner1" data-v="meatculture" onclick="selAlt(this)">
+                  <span class="at">미트컬쳐 — 흑백요리사 셰프. 피쉬앤칩스·스테이크 <span class="tag">추천</span> <a class="map-link" href="https://map.naver.com/p/search/%EB%AF%B8%ED%8A%B8%EC%BB%AC%EC%B3%90%20%EA%B0%95%EB%A6%89" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                </button>
+                <button class="alt-btn" data-k="c-dinner1" data-v="gangmunga" onclick="selAlt(this)">
+                  <span class="at">강문가 — 활어회 세트 <a class="map-link" href="https://map.naver.com/p/search/%EA%B0%95%EB%AC%B8%EA%B0%80%20%EA%B0%95%EB%A6%89" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                </button>
+                <button class="alt-btn" data-k="c-dinner1" data-v="hoecenter" onclick="selAlt(this)">
+                  <span class="at">강릉항회센터 — 즉석 회 <a class="map-link" href="https://map.naver.com/p/search/%EA%B0%95%EB%A6%89%ED%95%AD%ED%9A%8C%EC%84%BC%ED%84%B0" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="stop">
+          <div class="st"><span class="t">21:30</span><div class="dot"></div></div>
+          <div class="sc">
+            <div class="sname">🚢 정동진 썬크루즈 체크인</div>
+            <div class="sadr">강릉시 강동면 정동진리</div>
+            <div class="sdesc">크루즈선 모양 호텔. 절벽 위 정동진 절경 + 바다 인피니티풀. 다음날 일출 명소.</div>
+            <div class="stip">강릉시내에서 차로 30분. 정동진역 셔틀버스 있음</div>
+          </div>
+        </div>
+        <div class="stop">
+          <div class="st"><span class="t">22:30</span><div class="dot"></div></div>
+          <div class="sc">
+            <div class="sname">🌙 야간 마무리</div>
+            <div class="alts">
+              <span class="alts-lbl">골라줘</span>
+              <div class="alt-list" id="alt-c-night1-may29">
+                <button class="alt-btn" data-k="c-night1" data-v="sculpture" onclick="selAlt(this)">
+                  <span class="at">조각공원 야간 산책 — 호텔 내 산책로. 무료 <span class="tag">추천</span> <a class="map-link" href="https://map.naver.com/p/search/%EC%A0%95%EB%8F%99%EC%A7%84%20%EC%A1%B0%EA%B0%81%EA%B3%B5%EC%9B%90" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                </button>
+                <button class="alt-btn" data-k="c-night1" data-v="pool" onclick="selAlt(this)">
+                  <span class="at">호텔 인피니티풀 — 바다 전망 수영장 <a class="map-link" href="https://map.naver.com/p/search/%EC%A0%95%EB%8F%99%EC%A7%84%20%EC%8D%AC%ED%81%AC%EB%A3%A8%EC%A6%88" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                </button>
+                <button class="alt-btn" data-k="c-night1" data-v="sleep" onclick="selAlt(this)">
+                  <span class="at">일찍 자기 — 05시 일출 위해 😴</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin:32px 0 24px;padding:16px;background:rgba(196,122,94,0.08);border-radius:12px;text-align:center">
+          <span style="font-size:11px;letter-spacing:3px;color:var(--rose);font-weight:500">DAY 2 · 5/30 토</span>
+        </div>
+        <div class="stop">
+          <div class="st"><span class="t">05:30</span><div class="dot"></div></div>
+          <div class="sc">
+            <div class="sname">🌅 정동진 일출 ⭐</div>
+            <div class="sadr">호텔 발코니 or 모래시계공원</div>
+            <div class="sdesc">정동진 = 한국 일출 1번지. 05:14 일출. 절벽 위 크루즈호텔에서 보는 일출이 정동진의 핵심.</div>
+            <div class="stip">새벽이라 추울 수 있음. 따뜻하게</div>
+          </div>
+        </div>
+        <div class="stop">
+          <div class="st"><span class="t">09:00</span><div class="dot"></div></div>
+          <div class="sc">
+            <div class="sname">🍳 호텔 조식</div>
+            <div class="sdesc">호라이즌(Horizon) 레스토랑 조식 or 정동진역 카페</div>
+            <div class="alts">
+              <span class="alts-lbl">골라줘</span>
+              <div class="alt-list" id="alt-c-breakfast2-may29">
+                <button class="alt-btn" data-k="c-breakfast2" data-v="horizon" onclick="selAlt(this)">
+                  <span class="at">호라이즌 — 호텔 내 바다뷰 레스토랑 조식 <span class="tag">추천</span> <a class="map-link" href="https://map.naver.com/p/search/%EC%A0%95%EB%8F%99%EC%A7%84%20%EC%8D%AC%ED%81%AC%EB%A3%A8%EC%A6%88%20%ED%98%B8%EB%9D%BC%EC%9D%B4%EC%A6%8C" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                </button>
+                <button class="alt-btn" data-k="c-breakfast2" data-v="proust" onclick="selAlt(this)">
+                  <span class="at">카페 Proust — 정동진역 바로 앞. 강릉 커피 <a class="map-link" href="https://map.naver.com/p/search/%EC%B9%B4%ED%8E%98%20%50%72%6F%75%73%74%20%EC%A0%95%EB%8F%99%EC%A7%84" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="stop">
+          <div class="st"><span class="t">11:00</span><div class="dot"></div></div>
+          <div class="sc">
+            <div class="sname">🚶 정동심곡 바다부채길</div>
+            <div class="sadr">정동진~심곡 해안 절벽 산책로</div>
+            <div class="sdesc">2,300만년 전 지층 바위 위 해안 산책로. 트립어드바이저 ★4.9. 약 2.86km 1시간 코스.</div>
+            <div class="stip">바람 강하면 운영 중단. 사전 확인 권장</div>
+          </div>
+        </div>
+        <div class="stop">
+          <div class="st"><span class="t">13:00</span><div class="dot"></div></div>
+          <div class="sc">
+            <div class="sname">🍲 정동진 → 강릉 점심</div>
+            <div class="sdesc">정동진에서 강릉 시내 복귀하며 점심.</div>
+            <div class="alts">
+              <span class="alts-lbl">골라줘</span>
+              <div class="alt-list" id="alt-c-lunch2-may29">
+                <button class="alt-btn" data-k="c-lunch2" data-v="sundubu" onclick="selAlt(this)">
+                  <span class="at">초당두부마을 — 강릉 시그니처. 못 가봤다면 필수 <span class="tag">추천</span> <a class="map-link" href="https://map.naver.com/p/search/%EC%B4%88%EB%8B%B9%EB%91%90%EB%B6%80%EB%A7%88%EC%9D%84" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                </button>
+                <button class="alt-btn" data-k="c-lunch2" data-v="jjamppong" onclick="selAlt(this)">
+                  <span class="at">강릉짬뽕순두부 — 강릉 시그니처 매콤+부드러움 <a class="map-link" href="https://map.naver.com/p/search/%EA%B0%95%EB%A6%89%EC%A7%AC%EB%BD%95%EC%88%9C%EB%91%90%EB%B6%80" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                </button>
+                <button class="alt-btn" data-k="c-lunch2" data-v="donghae" onclick="selAlt(this)">
+                  <span class="at">동해막국수 — 시원한 막국수 <a class="map-link" href="https://map.naver.com/p/search/%EB%8F%99%ED%95%B4%EB%A7%89%EA%B5%AD%EC%88%98%20%EA%B0%95%EB%AC%B8%EB%B3%B8%EC%A0%90" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="stop">
+          <div class="st"><span class="t">15:00</span><div class="dot"></div></div>
+          <div class="sc">
+            <div class="sname">☕ 마지막 카페</div>
+            <div class="sadr">테라로사 본점 or 명주동</div>
+            <div class="sdesc">강릉 떠나기 전 마지막 커피.</div>
+            <div class="alts">
+              <span class="alts-lbl">골라줘</span>
+              <div class="alt-list" id="alt-c-cafe2-may29">
+                <button class="alt-btn" data-k="c-cafe2" data-v="terarosa" onclick="selAlt(this)">
+                  <span class="at">테라로사 본점 — 강릉 커피 1세대. 남강릉IC 옆 <span class="tag">추천</span> <a class="map-link" href="https://map.naver.com/p/search/%ED%85%8C%EB%9D%BC%EB%A1%9C%EC%82%AC%20%EC%BB%A4%ED%94%BC%EA%B3%B5%EC%9E%A5%20%EA%B0%95%EB%A6%89%EB%B3%B8%EC%A0%90" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                </button>
+                <button class="alt-btn" data-k="c-cafe2" data-v="bongbong" onclick="selAlt(this)">
+                  <span class="at">봉봉방앗간 — 명주동 골목 감성 <a class="map-link" href="https://map.naver.com/p/search/%EB%B4%89%EB%B4%89%EB%B0%A9%EC%95%97%EA%B0%84%20%EA%B0%95%EB%A6%89" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                </button>
+                <button class="alt-btn" data-k="c-cafe2" data-v="gangsand" onclick="selAlt(this)">
+                  <span class="at">강릉샌드 — 기념품으로 포장 <a class="map-link" href="https://map.naver.com/p/search/%EA%B0%95%EB%A6%89%EC%83%8C%EB%93%9C%20%EC%A4%91%EC%95%99%EC%8B%9C%EC%9E%A5" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="stop">
+          <div class="st"><span class="t">17:30</span><div class="dot"></div></div>
+          <div class="sc">
+            <div class="sname">🍽️ 강릉 마지막 저녁</div>
+            <div class="alts">
+              <span class="alts-lbl">골라줘</span>
+              <div class="alt-list" id="alt-c-dinner2-may29">
+                <button class="alt-btn" data-k="c-dinner2" data-v="meatculture" onclick="selAlt(this)">
+                  <span class="at">미트컬쳐 — 첫날 안 갔으면 여기서 <span class="tag">추천</span> <a class="map-link" href="https://map.naver.com/p/search/%EB%AF%B8%ED%8A%B8%EC%BB%AC%EC%B3%90%20%EA%B0%95%EB%A6%89" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                </button>
+                <button class="alt-btn" data-k="c-dinner2" data-v="hanwoo" onclick="selAlt(this)">
+                  <span class="at">오직한우 — 강릉 한우 1++ 정육식당 <a class="map-link" href="https://map.naver.com/p/search/%EC%98%A4%EC%A7%81%ED%95%9C%EC%9A%B0%20%EA%B0%95%EB%A6%89%EB%B3%B8%EC%A0%90" target="_blank" style="display:inline-flex;vertical-align:middle"><svg viewBox="0 0 24 24" width="10" height="10" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> 네이버</a></span>
+                </button>
+                <button class="alt-btn" data-k="c-dinner2" data-v="light" onclick="selAlt(this)">
+                  <span class="at">카페에서 가볍게</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="stop">
+          <div class="st"><span class="t">19:00</span><div class="dot"></div></div>
+          <div class="sc">
+            <div class="sname">🚗 서울 출발</div>
+            <div class="sdesc">남강릉IC → 영동고속도로 → 약 3시간.</div>
+          </div>
+        </div>
+        <div class="stop">
+          <div class="st"><span class="t">22:00</span><div class="dot"></div></div>
+          <div class="sc">
+            <div class="sname">🏠 교대역 도착</div>
+            <div class="sdesc">진경이 교대역 도착. 토요일 밤 10시 도착. 1박 2일 정동진 데이트 끝.</div>
+          </div>
+        </div>
+
+      </div>
+      <div class="pick-wrap">
+        <p class="pick-msg">이 코스 어때? 마음에 들면 눌러줘</p>
+        <button class="pick-btn" id="pk-c-may29" onclick="pickPlan('may29','c')"><span>Plan C 좋아!</span></button>
+        <div class="pick-other" id="po-c-may29"></div>
+      </div>
+      <div class="divider"><span>대화</span></div>
+      <div class="clist" id="cl-c-may29"></div>
+      <div class="cinput-wrap">
+        <textarea class="cinput" id="ci-c-may29" placeholder="코멘트 남기기..." rows="1"
+          oninput="autoH(this)" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendC('may29','c')}"></textarea>
+        <button class="csend" onclick="sendC('may29','c')"><svg viewBox="0 0 24 24"><path d="M2 21L23 12 2 3v7l15 2-15 2z"/></svg></button>
       </div>
     </div>
 
@@ -1056,7 +1435,7 @@ const NAMES={hy:'서현일',ky:'김진경'};
 const EMOJIS={hy:'🧑',ky:'👩'};
 const PLAN_NAMES_MAP={
   apr17:{a:'Plan A · 이태원 XOLO',b:'Plan B · 교대 가성비',c:'Plan C · 삼성 합리적'},
-  may29:{a:'Day 1 · 5월 29일',b:'Day 2 · 5월 30일'}
+  may29:{a:'Plan A · 안목 클래식',b:'Plan B · 경포 전통',c:'Plan C · 정동진 체험'}
 };
 const PW='0104';
 let ME=null,DATE_KEY=null,listeners=[];
@@ -1163,14 +1542,9 @@ window.pickPlan=pickPlan;
 function renderPicks(dk,picks){
   if(!ME)return;
   const other=ME==='hy'?'ky':'hy';
-  const isGangneung = dk==='may29';
-  const ps = isGangneung ? {a:'Day 1',b:'Day 2'} : {a:'A',b:'B',c:'C'};
+  const ps={a:'A',b:'B',c:'C'};
   const parts=[];
-  ['hy','ky'].forEach(u=>{
-    if(picks[u]){
-      parts.push(EMOJIS[u]+' '+NAMES[u]+': '+(isGangneung?'':'Plan ')+ps[picks[u]]);
-    }
-  });
+  ['hy','ky'].forEach(u=>{if(picks[u])parts.push(EMOJIS[u]+' '+NAMES[u]+': Plan '+ps[picks[u]]);} );
   const banner=document.getElementById('banner-'+dk);
   if(!banner)return;
   if(parts.length){banner.classList.add('show');document.getElementById('banner-txt-'+dk).textContent='선택 현황 — '+parts.join('  ·  ');}
@@ -1179,9 +1553,8 @@ function renderPicks(dk,picks){
     const btn=document.getElementById('pk-'+p+'-'+dk);
     const po=document.getElementById('po-'+p+'-'+dk);
     if(!btn)return;
-    const label = isGangneung ? (ps[p]||p.toUpperCase()) : ('Plan '+p.toUpperCase());
     if(picks[ME]===p){btn.classList.add('done');btn.innerHTML='<span>✓ 선택완료 (취소하려면 다시 눌러)</span>';}
-    else{btn.classList.remove('done');btn.innerHTML='<span>'+label+' 좋아!</span>';}
+    else{btn.classList.remove('done');btn.innerHTML='<span>Plan '+p.toUpperCase()+' 좋아!</span>';}
     if(po)po.textContent=picks[other]===p?EMOJIS[other]+' '+NAMES[other]+'도 이 코스 선택함!':'';
   });
 }
